@@ -140,7 +140,7 @@
 
 
           <li class="sub-menu">
-      <a class="javascript:;" >
+      <a class="javascript:;"  href="{{url('/user/clients')}}" >
      
       
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-users"> </span> <span>Clients</span></font>
@@ -150,7 +150,7 @@
 
 
      <li class="sub-menu">
-      <a class="javascript:;" >
+      <a class="javascript:;"   href="{{url('/user/fournisseurs')}}">
      
       
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-users"> </span> <span>Fournisseurs</span></font>

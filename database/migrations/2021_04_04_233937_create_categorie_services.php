@@ -14,7 +14,7 @@ class CreateCategorieServices extends Migration
     public function up()
     {
         Schema::create('categorie_services', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('type_service'); 
             $table->string('description'); 
             $table->string('image')->nullable();

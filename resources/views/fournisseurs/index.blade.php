@@ -26,7 +26,7 @@
     
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{{ asset('accueil0/css/resete.css') }}"> <!-- CSS reset -->
-    <link rel="stylesheet" href="{{ asset('accueil0/css/style_clientt.css') }}">
+    <link rel="stylesheet" href="{{ asset('accueil0/css/style_clienttt.css') }}">
 	<link rel="stylesheet" href="{{ asset('accueil0/css/animated-logo.min.css') }}"><!-- Logo -->
 	<link rel="stylesheet" href="{{ asset('accueil0/css/our-team.css') }}"> <!-- Resource style -->
 	

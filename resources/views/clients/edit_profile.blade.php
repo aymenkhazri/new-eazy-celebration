@@ -121,10 +121,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Genre:</strong>
-                    <input type="text" name="genre" value="{{ Auth::user()->genre}}" class="form-control" placeholder="genre">
+                    <select name="genre" class="form-control">
+                    <option value="{{ Auth::user()->genre}}">{{Auth::user()->genre}}</option>
+                    <option value="Homme">Homme</option>
+                    <option value="Femme">Femme</option>
+                </select>
+                   
                 </div>
             </div>
-
 
          
 

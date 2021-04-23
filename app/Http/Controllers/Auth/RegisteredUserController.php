@@ -37,6 +37,7 @@ class RegisteredUserController extends Controller
             'prenom' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
+         
         ]);
 
         Auth::login($user = User::create([
@@ -44,8 +45,12 @@ class RegisteredUserController extends Controller
             'prenom' => $request->prenom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+       
+        
         ]));
-        $user->attachRole($request->role_id);
+
+        $user->attachRole($request->user_type);
+        
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);

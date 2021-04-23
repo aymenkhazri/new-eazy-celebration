@@ -14,7 +14,7 @@
     <div align="center">
      <h1>  </h1>
      <div class="row heading">
-					<div class="col-lg-12">
+					<div class="col-lg-12" style="text-align:center">
 						<h2>Modifier votre Profile </h2>
 						<hr>
 				
@@ -34,10 +34,11 @@
    <table  >
   
     <tr>
+   
       <td >
-      <font size="5" color="#4d1919">Mettre à jour l'image de profil </font>
-      <br>
-      <br>
+      <div class="card"> 
+      
+      
       @if ($message = Session::get('succes'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -45,34 +46,39 @@
     @endif
     <br>
       
-      <div class="row"  >
+    <font size="4" color="#4d1919" align="center">Mettre à jour l'image de profil </font>
 
-<div class="col-md-10 col-md-offset-1">
-
-
-    <img src="{{asset('images')}}/{{  Auth::user()->avatar }}" style="width:170px; height:170px;  border-radius:50%; "> 
     <br>
+      <br>
+
+      <div align="center">
+    <img src="{{asset('images')}}/{{  Auth::user()->avatar }}" style="width:170px; height:170px;  border-radius:50%; "> 
+    </div>
+    <br>
+    <br>
+      <br>
     <form enctype="multipart/form-data" action="{{  url('/user/edit_profile') }}" method="POST">
     <br>
-    <br>
+    
 
                 <input type="file" name="avatar">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <div class=" text-center">
                  <button type="submit" class="btn btn-primary">Modifier</button>
-           
-    </div>
+                 </div>
+    
     </form>
 
-   
+    
 </div>
 
 
- </div>
+</div>
       
       </td>
+
       <td >
         
         
@@ -80,7 +86,7 @@
 
 <div class="card">       
 
-<div class="card-body">
+
 
 <form action="{{ route('update_fournisseurs')}}" method="POST">
         @csrf
@@ -219,7 +225,7 @@
         </td>
         </tr>
     </form>
-    </div>
+   
     </div>
     </table>
    

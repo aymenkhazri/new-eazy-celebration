@@ -20,7 +20,9 @@ class SuperviseurController extends Controller
      */
     public function index()
     {
-        $superviseurs = User::latest()->paginate(5);
+       $superviseurs=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',2)
+        ->paginate(5);
   
         return view('superviseurs.index',compact('superviseurs')) 
           ->with('i', (request()->input('page', 1) - 1) * 2);

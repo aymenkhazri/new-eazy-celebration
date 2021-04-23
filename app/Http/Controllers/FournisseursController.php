@@ -71,10 +71,7 @@ class FournisseursController extends Controller
     }
 
 
-    public function demande()
-    {
-        return view('fournisseurs.demandes.index');
-    }
+
 
 
 
@@ -115,15 +112,18 @@ class FournisseursController extends Controller
 
     public function index()
     {
-        $users=User::latest()->paginate(5);
-  
+        $users=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',4)
+        ->paginate(5);
+
         return view('admin.fournisseur.index',compact('users')) 
           ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
-    public function show(User $user)
+    public function show(User $user , $id )
     {
+        $user=User::find($id);
         return view('admin.fournisseur.show',compact('user'));
     }
 
@@ -133,6 +133,27 @@ class FournisseursController extends Controller
           $user->delete();
     
           return back()->with('success','user Supprimé avec succès') ;        
+      }
+
+
+
+
+
+
+      public function indexsuperviseurs ()
+      {
+          $users=User::join('role_user','users.id','role_user.user_id')
+          ->where('role_id',4)
+          ->paginate(5);
+  
+          return view('superviseur.fournisseur.index',compact('users')) 
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+      }
+
+      public function showsuperviseurs (User $user , $id )
+      {
+          $user=User::find($id);
+          return view('superviseur.fournisseur.show',compact('user'));
       }
 
 

@@ -7,7 +7,7 @@ use App\Models\User;
 use Auth;
 use Hash ;
 use Session ;
-
+use Illuminate\Support\Facades\DB;
 class ClientsController extends Controller
 {
        
@@ -77,11 +77,7 @@ class ClientsController extends Controller
         return view('clients.boit_chat');
     }
 
-    public function annonce()
-    {
-        return view('clients.annonces.index');
-    }
-
+  
 
     public function edit()
     {
@@ -120,20 +116,28 @@ class ClientsController extends Controller
 
     public function index()
     {
-        $users=User::latest()->paginate(5);
-  
+        
+        $users=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',3)
+        ->paginate(5);
+
+       
+
         return view('admin.client.index',compact('users')) 
-          ->with('i', (request()->input('page', 1) - 1) * 5);
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
 
-    public function show(User $user)
+    public function show(User $user , $id )
     {
+     
+        $user=User::find($id);
         return view('admin.client.show',compact('user'));
     }
 
       public function destroy(User $user , $id)
       {
+       
         $user=User::find($id);
           $user->delete();
     
@@ -141,6 +145,28 @@ class ClientsController extends Controller
       }
 
 
+
+
+      public function indexsuperviseurs()
+      {
+          
+          $users=User::join('role_user','users.id','role_user.user_id')
+          ->where('role_id',3)
+          ->paginate(5);
+  
+         
+  
+          return view('superviseur.client.index',compact('users')) 
+          ->with('i', (request()->input('page', 1) - 1) * 5);
+      }
+  
+  
+      public function showsuperviseurs(User $user , $id )
+      {
+       
+          $user=User::find($id);
+          return view('superviseur.client.show',compact('user'));
+      }
 
 
 

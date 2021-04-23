@@ -133,10 +133,10 @@
 
 
 					<div  data-validate = "Username is required"  style=" margin-left:100px; "  >
-					<select name="role_id" class="input100"  :value="__('register as')">
+					<select name="user_type" class="input100"  :value="__('register as')">
                     
-						<option class="input100" value="client">Client</option>
-						<option class="input100" value="fournisseur">Fournisseur</option>
+						<option  value="client">Client</option>
+						<option  value="fournisseur">Fournisseur</option>
 					  </select>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -144,7 +144,7 @@
 						</span>
 					</div>
 
-
+				
 
 					
 					<div class="container-login100-form-btn p-t-10" style=" margin-left:20px;" >

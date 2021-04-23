@@ -23,6 +23,7 @@
     <table class="table table-bordered"  >
         <tr class="thead-dark">
             <th style="text-align:center">N</th>
+            <th style="text-align:center">Image</th>
             <th style="text-align:center"> Nom</th>
             <th style="text-align:center"> Prenom</th>
             <th style="text-align:center"> Email</th>
@@ -30,14 +31,15 @@
             <th style="text-align:center">Genre</th>
             <th style="text-align:center">Adresse</th>
             <th style="text-align:center">Telephone</th>
-            <th style="text-align:center">Image</th>
+            <th style="text-align:center">Type de service</th>
 
           
-            <th width="100px" style="text-align:center">Action</th>
+            <th width="170px" style="text-align:center">Action</th>
         </tr>
         @foreach ($users as $user)
         <tr>
             <td style="text-align:center">{{ ++$i }}</td>
+            <td style="text-align:center"><img src="{{asset('images')}}/{{ $user->avatar}}" width="70px;" height="60px;"  style=" border-radius:50%"/></td>
             <td style="text-align:center">{{ $user->name}}</td>
             <td style="text-align:center">{{ $user->prenom}}</td>
             <td style="text-align:center">{{ $user->email}}</td>
@@ -45,17 +47,17 @@
             <td style="text-align:center">{{ $user->genre}}</td>
             <td style="text-align:center">{{ $user->adresse}}</td>
             <td style="text-align:center">{{ $user->telephone}}</td>
-           <td style="text-align:center"><img src="{{asset('images')}}/{{ $user->avatar}}" width="70px;" height="70px;"/></td>
+            <td style="text-align:center">{{ $user->type_service_id}}</td>
+            
            
             <td>
-                <form action="{{ url('/admin/clients/destroy',$user->id) }}" method="POST">
+                <form action="{{ route('fournisseurs.destroy',$user->id) }}" method="POST">
    
-
-                   
+                <a class="btn btn-primary" href="{{ route('fournisseurs.show',$user->id) }}">Voir</a>
                     
    
                     @csrf
-              
+                    @method('DELETE')
       
                     <button type="submit" class="btn btn-danger">Supprimer</button>
                 </form>
@@ -64,8 +66,8 @@
         </tr>
         @endforeach
     </table>
-  
     {!! $users->links() !!}
+
     </div>
     <br>
     <br>

@@ -11,6 +11,12 @@
 
 
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -94,7 +100,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <h5 class="centered">{{ Auth::user()->name }} </h5>
+          <h5 class="centered">{{ Auth::user()->name }} <span >{{ Auth::user()->prenom }}</span> </h5>
          <hr>
          
          
@@ -167,7 +173,7 @@
         
 
      <li class="sub-menu">
-      <a class="javascript:;"  href="{{url('/admin/clients')}}" >
+      <a class="javascript:;"  href="{{route('clients.index')}}" >
      
       
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-users"> </span>   <span> Clients</span></font>
@@ -179,7 +185,7 @@
 
 
      <li class="sub-menu">
-      <a class="javascript:;"  href="{{url('/admin/fournisseurs')}}" >
+      <a class="javascript:;"  href="{{route('fournisseurs.index')}}" >
      
       
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-users"> </span>  <span> Fournisseurs</span></font>
@@ -232,8 +238,7 @@
       <section class="wrapper">
       
       <br>
-      <br>
-      <br>
+     
      
       
       

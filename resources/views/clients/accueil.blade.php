@@ -26,7 +26,7 @@
 <section class="box-content box-1">
 			<div class="container" id="services">
 				<div class="row heading">
-					<div class="col-lg-12">
+					<div class="col-lg-12" style="text-align:center">
 						<h2>Accueil</h2>
 						<hr>
 						<div class="intro">eazy-celebration solution et evenement</div>
