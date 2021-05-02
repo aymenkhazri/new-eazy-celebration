@@ -1,18 +1,12 @@
-@extends('clients.index')
+@extends('superviseur.index')
   
 @section('content')
-
-
-<section class="box-content box-1">
 			<div class="container" >
-				<div >
-					<div class="col-lg-12" style="text-align:center">
-						<h2>Gestion des Annonces</h2>
-						<hr>
-						
-					</div>
 
-                    <br>
+            <div style="text-align:center">
+             <font    color="#bf4040" > <h1> **   Annonces  ** </h1> </font>
+            </div>
+           
 
 					<div class="row">
         <div class="col-lg-12 margin-tb">
@@ -25,9 +19,7 @@
             <br>
             <br>
             <br>
-            <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('annonces.create') }}">  Créer une nouvelle Annonce</a>
-            </div>
+            
         </div>
     </div>
    
@@ -40,11 +32,11 @@
     <br>
     <br>
 
-    <div class="row" >
+    <div class="row"   >
 				@foreach ($annonces as $annonce)
                
 					<div class="col-sm-6 box-item" >
-                    <div class="card">
+                    <div class="carde">
                   
                     
 					<table class="table   table-bordered "  style="background-color:#e1f1f0;">
@@ -96,28 +88,26 @@
 				
                     
                     </div>
-                    
 					</div>
-                    
 					@endforeach	
 					
                 </div>	
 
+                <br>
+                <br>
+               
+                
+               
+               
+<br>
 
-
-            
-                <br>
-                <br>
-                <br>
-              
-   <br>
+    
        
    <div align="center">
   
     {!! $annonces->links() !!}
     </div>
 
-				</div>
 			
 			
 			
@@ -128,6 +118,5 @@
 
 
 
-            </section>
-
+           
 @endsection

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Annonce;
+use App\Models\Demande;
+use Auth;
+use App\Models\User;
 use Illuminate\Http\Request;
-
+use App\Models\Categorie_service;
 class DemandeController extends Controller
 {
     /**
@@ -13,9 +16,18 @@ class DemandeController extends Controller
      */
     public function index()
     {
-         $annonces = Annonce::latest()->paginate(2);
-  
-        return view('fournisseurs.demandes.index',compact('annonces')) 
+      
+       
+        
+        $annonces = Annonce::latest()->paginate(4);
+        $categorie_services = Categorie_service::all();
+
+      
+      
+       
+       
+
+        return view('fournisseurs.demandes.index',compact('annonces','categorie_services',)) 
           ->with('i', (request()->input('page', 1) - 1) * 2);
     }
 
@@ -24,9 +36,14 @@ class DemandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id =null)
     {
-        //
+        $annonce= Annonce::find($id);
+
+       
+   
+        return view('fournisseurs.demandes.create' ,compact('annonce')) 
+     ;
     }
 
     /**
@@ -35,9 +52,29 @@ class DemandeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request ,$id)
     {
-        //
+        $request->validate([
+            'montant' => 'required',
+            'description' => 'required',
+           
+            
+          
+        ]);
+  
+        $demande = Demande::create([
+            'montant' => $request->montant,
+            'description' => $request->description,
+           
+            'user_id' =>Auth::user()->id,
+            'annonce_id' =>$id,
+
+          
+        ]);
+     
+
+        return redirect()->route('demandes.index')
+                        ->with('succes','demande créé avec succès.');
     }
 
     /**

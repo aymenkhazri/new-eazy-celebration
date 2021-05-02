@@ -40,7 +40,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/stylee.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
   <script src="{{ asset('lib/chart-master/Chart.js') }}"></script>
 
@@ -195,7 +195,7 @@
 
 
      <li class="sub-menu">
-      <a class="javascript:;" >
+      <a class="javascript:;"   href="{{url('/admin/annonces')}}" >
 
      
      <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"  > </span> <span> Annonces</span></font>

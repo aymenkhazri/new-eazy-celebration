@@ -9,6 +9,19 @@
 
     <title>Eazy-Celebration </title>
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
@@ -22,8 +35,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
   
     <!-- Bootstrap Core CSS -->
+
     <link href="{{ asset('accueil0/css/bootstrap_client.min.css') }}" rel="stylesheet">
-    
     <!-- Custom CSS -->
 	<link rel="stylesheet" href="{{ asset('accueil0/css/resete.css') }}"> <!-- CSS reset -->
     <link rel="stylesheet" href="{{ asset('accueil0/css/style_clienttt.css') }}">
@@ -52,14 +65,16 @@
                 
                 
                 
-                <a class="navbar-brand page-scroll" href="#page-top">Eazy-Celebration Fournisseur <i class="fas fa-glass-cheers"></i> </a>
+                
             
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
+                <ul class="nav  navbar-right">
+                   
+
+					<li style=" margin-right:500px;"  >
+					<a class="navbar-brand page-scroll" href="#page-top"  >Eazy-Celebration Fournisseur <i class="fas fa-glass-cheers"></i> </a>
                     </li>
 					<li>
                         <a class="page-scroll" href="{{ url('/fournisseur/accueil') }}">Accueil</a>
@@ -76,7 +91,7 @@
 				   
 	              </li>
 				  <li>
-				  <div  style=" margin-left:400px;"  >
+				  <div  style=" margin-left:300px;"  >
 				  <span class="centered"><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="img-circle" height="40px;" width="40px;"></a></span> 
 				  <div class="dropdown">
                			 <button class="dropbtn"> <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></button>

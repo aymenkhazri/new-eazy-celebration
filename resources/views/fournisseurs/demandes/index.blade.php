@@ -3,16 +3,28 @@
 @section('content')
 
 
+
+
+
 <section class="box-content box-1">
-			<div class="container" id="services">
-				<div class="row heading">
+			<div class="container" >
+				<div >
 					<div class="col-lg-12" style="text-align:center">
 						<h2>Annonces</h2>
 						<hr>
 							
 						</div>
 
-<br>
+ 
+
+
+
+
+
+
+
+		 
+
 
 <div class="row">
 <div class="col-lg-12 margin-tb">
@@ -23,14 +35,25 @@
 </div>
 <br>
 <br>
-<br>
-<br>
+<div class="pull-right"  >
+                  
+<div class="dropdown">
+  <button class="dropbtn">Choisir une service</button>
+  <div class="dropdown-content">                                      
+  @foreach($categorie_services as $categorie_service)
+  <a href="{{url('/fournisseur/demandes/{$categorie_service->slug}')}}">{{$categorie_service->type_service}}</a>
+  @endforeach
+ 
+  </div>
+</div>
+</div>
+
 
 </div>
 </div>
 
 <br>
-@if ($message = Session::get('success'))
+@if ($message = Session::get('succes'))
 <div class="alert alert-success">
 <p>{{ $message }}</p>
 </div>
@@ -41,16 +64,16 @@
 <div class="row" >
 @foreach ($annonces as $annonce)
 
-<div class="col-sm-5 box-item" >
+<div class="col-sm-6 box-item" >
 <div class="card">
 
 
 <table class="table   table-bordered "  style="background-color:#e1f1f0;">
 <tr style="background-color:#4ECDC4;">
-<td  style="text-align:center">Annonce n {{ ++$i }} </td><td style="text-align:center" > {{ $annonce->user_id}}</td>
+<td colspan="2"  style="text-align:center"> <h6><img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   />  <strong  style=" margin-left:80px;">{{$annonce->user->name}}</strong>  <strong>{{$annonce->user->prenom	}} </strong> </h6></td>
 </tr>
 <tr >
-<td  > Categorie : </td><td >{{ $annonce->type_categorie_id}} </td>
+<td style="width:50%" > Categorie : </td><td >{{ $annonce->type_categorie_id}} </td>
 </tr>
 <tr >
 <td > Les services :</td><td >  @foreach($annonce->categorie_services as $anno)
@@ -75,7 +98,7 @@
 <td colspan="2" style="text-align:center"> 
 
 
-<a class="btn btn-success" href="{{ route('demandes.create') }}"> Demandes</a>
+<a class="btn btn-success" href="{{ url('fournisseur/create',$annonce->id) }}"> Demandes</a>
 				
 
 			
@@ -87,7 +110,11 @@
 
 
 </div>
+<br>
+<br>
+
 </div>
+
 @endforeach	
 
 </div>	
@@ -99,6 +126,9 @@
 
 </div>
 
+<br>
+<br>
+<br>
 
 
 </div>

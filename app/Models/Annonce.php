@@ -21,4 +21,8 @@ public function categorie_evenement(){
     return $this->belongsTo('App\Models\Categorie_evenement');
 }
 
+public function user(){
+    return $this->belongsTo('App\Models\User');
+}
+
 }

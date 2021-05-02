@@ -35,6 +35,10 @@ class User extends Authenticatable
     public function categorie_service(){
         return $this->belongsTo('App\Models\Categorie_service');
     }
+
+    public function annonces(){
+        return $this->belongsToMany('App\Models\Annonce');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

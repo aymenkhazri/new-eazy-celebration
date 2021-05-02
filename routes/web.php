@@ -51,15 +51,16 @@ Route::get('/fournisseur/edit_profile', 'App\Http\controllers\FournisseursContro
 Route::post('/update_fournisseurs', 'App\Http\controllers\FournisseursController@update_fournisseurs')->name('update_fournisseurs');
 Route::resource('/fournisseur/demandes', 'App\Http\controllers\DemandeController' );
 
+Route::post('fournisseur/store/{id}', 'App\Http\controllers\DemandeController@store');
+
+Route::get('fournisseur/create/{id}', 'App\Http\controllers\DemandeController@create');
 
 Route::resource('/admin/categorie_evenements', 'App\Http\controllers\CategorieEvenementController' );
 Route::resource('/admin/superviseurs', 'App\Http\controllers\SuperviseurController' );
 Route::resource('/admin/categorie_services', 'App\Http\controllers\CategorieServiceController' );
-
-
 Route::resource('/admin/clients', 'App\Http\controllers\ClientsController' );
 Route::resource('/admin/fournisseurs', 'App\Http\controllers\FournisseursController' );
-
+Route::get('/admin/annonces', 'App\Http\controllers\AdminController@index');
 
 
 
@@ -75,4 +76,4 @@ Route::get('/user/clients/show/{id}', 'App\Http\controllers\ClientsController@sh
 
 Route::get('/user/fournisseurs', 'App\Http\controllers\FournisseursController@indexsuperviseurs' );
 Route::get('/user/fournisseurs/show/{id}', 'App\Http\controllers\FournisseursController@showsuperviseurs' );
-
+Route::get('/user/annonces', 'App\Http\controllers\UserController@annonce');

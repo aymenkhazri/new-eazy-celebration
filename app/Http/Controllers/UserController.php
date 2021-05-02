@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Annonce;
 use Auth;
 use Hash ;
 use Session ;
@@ -81,5 +82,18 @@ class UserController extends Controller
 
 
     	
+    }
+
+
+
+    
+    public function annonce()
+    {
+        $annonces = Annonce::latest()
+        ->paginate(2);
+       
+  
+        return view('superviseur.annonce.index',compact('annonces')) 
+          ->with('i', (request()->input('page', 1) - 1) * 2);
     }
 }

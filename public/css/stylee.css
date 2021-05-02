@@ -15,10 +15,26 @@ Website: http://Alvarez.is/
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
 /* BASIC THEME CONFIGURATION */
+
+
+.carde {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  .carde:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+  }
+  
+  .containere {
+    padding: 2px 16px;
+  }
+
 body {
     color: #797979;
 	background: #eaeaea;
-    font-family: 'Ruda', sans-serif;
+ 
     padding: 0px !important;
     margin: 0px !important;
     font-size:20px;
