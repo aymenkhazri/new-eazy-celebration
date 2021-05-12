@@ -9,7 +9,7 @@ class Categorie_evenement extends Model
 {
     public $guarded = [];
 
-    public function annonce(){
-        return $this->hasMany('App\Models\Categorie_evenement');
+    public function annonces(){
+        return $this->hasMany('App\Models\Annonce');
     }
 }

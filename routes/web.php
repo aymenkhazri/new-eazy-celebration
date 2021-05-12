@@ -15,9 +15,25 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('accueil0');
-});
+
+
+Route::get('/', 'App\Http\controllers\Accueil0Controller@accueil');
+
+Route::get('/accueil', 'App\Http\controllers\Accueil0Controller@accueil');
+Route::get('/evenements', 'App\Http\controllers\Accueil0Controller@evenements');
+Route::get('/services', 'App\Http\controllers\Accueil0Controller@services');
+Route::get('/propos', 'App\Http\controllers\Accueil0Controller@propos');
+Route::get('/contact', 'App\Http\controllers\Accueil0Controller@contact');
+
+
+
+
+
+
+
+
+
+
 Route::group(['middleware'=>['auth']], function () {
     Route::get('/dashboard','App\Http\controllers\DashboardController@index')->name('dashboard');
    
@@ -28,32 +44,47 @@ require __DIR__.'/auth.php';
 
 
     
-Route::get('/', 'App\Http\controllers\Accueil0Controller@evenement');
+
 
 Route::get('/client/profile','App\Http\controllers\ClientsController@profile');
-Route::get('/client/boit_chat', 'App\Http\controllers\ClientsController@boit_chat');
-Route::get('/client/accueil', 'App\Http\controllers\ClientsController@accueil');
+Route::get('/boit_chats', 'App\Http\controllers\ClientsController@boit_chat');
+Route::get('/accueill', 'App\Http\controllers\ClientsController@accueil');
 
 Route::get('/client/edit_profile', 'App\Http\controllers\ClientsController@edit_profile');
 Route::post('/client/accueil', 'App\Http\controllers\ClientsController@changepassword')->name('changepassword');
 Route::get('/client/edit_profile', 'App\Http\controllers\ClientsController@edit' );
 Route::post('/update', 'App\Http\controllers\ClientsController@update')->name('update');
-Route::resource('/client/annonces', 'App\Http\controllers\AnnonceController' );
+Route::resource('/annonces', 'App\Http\controllers\AnnonceController' );
+
+Route::get('/evenementss', 'App\Http\controllers\ClientsController@evenements');
+Route::get('/servicess', 'App\Http\controllers\ClientsController@services');
+Route::get('filtre_evenement/{id}', 'App\Http\controllers\ClientsController@filtre_evenement');
+Route::get('filtre_service/{id}', 'App\Http\controllers\ClientsController@filtre_service');
+Route::get('filtre_demande/{id}', 'App\Http\controllers\ClientsController@filtre_demande');
+
 
 
 Route::get('/fournisseur/profile', 'App\Http\controllers\FournisseursController@profile');
-Route::get('/fournisseur/boit_chat', 'App\Http\controllers\FournisseursController@boit_chat');
-Route::get('/fournisseur/accueil', 'App\Http\controllers\FournisseursController@accueil');
+Route::get('/boit_chat', 'App\Http\controllers\FournisseursController@boit_chat');
+Route::get('/accueilll', 'App\Http\controllers\FournisseursController@accueil');
 
 Route::get('/fournisseur/edit_profile', 'App\Http\controllers\FournisseursController@edit_profile');
 Route::post('/fournisseur/accueil', 'App\Http\controllers\FournisseursController@changepassword')->name('changepassword');
 Route::get('/fournisseur/edit_profile', 'App\Http\controllers\FournisseursController@edit_fournisseurs' );
 Route::post('/update_fournisseurs', 'App\Http\controllers\FournisseursController@update_fournisseurs')->name('update_fournisseurs');
-Route::resource('/fournisseur/demandes', 'App\Http\controllers\DemandeController' );
+Route::get('/demandes', 'App\Http\controllers\DemandeController@index' );
 
 Route::post('fournisseur/store/{id}', 'App\Http\controllers\DemandeController@store');
-
 Route::get('fournisseur/create/{id}', 'App\Http\controllers\DemandeController@create');
+
+Route::get('/evenement', 'App\Http\controllers\FournisseursController@evenements');
+Route::get('/service', 'App\Http\controllers\FournisseursController@services');
+Route::get('/filter/{id}', 'App\Http\controllers\DemandeController@filter');
+Route::get('/indexdemande/{id}', 'App\Http\controllers\DemandeController@indexdemande');
+
+Route::get('destroydemande/{id}', 'App\Http\controllers\DemandeController@destroy' );
+
+
 
 Route::resource('/admin/categorie_evenements', 'App\Http\controllers\CategorieEvenementController' );
 Route::resource('/admin/superviseurs', 'App\Http\controllers\SuperviseurController' );
@@ -77,3 +108,15 @@ Route::get('/user/clients/show/{id}', 'App\Http\controllers\ClientsController@sh
 Route::get('/user/fournisseurs', 'App\Http\controllers\FournisseursController@indexsuperviseurs' );
 Route::get('/user/fournisseurs/show/{id}', 'App\Http\controllers\FournisseursController@showsuperviseurs' );
 Route::get('/user/annonces', 'App\Http\controllers\UserController@annonce');
+
+
+
+
+
+
+
+
+
+
+
+

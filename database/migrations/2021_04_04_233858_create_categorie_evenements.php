@@ -14,7 +14,7 @@ class CreateCategorieEvenements extends Migration
     public function up()
     {
         Schema::create('categorie_evenements', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('type_evenement'); 
             $table->string('description'); 
             $table->string('image')->nullable();

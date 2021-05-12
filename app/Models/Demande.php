@@ -10,4 +10,8 @@ class Demande extends Model
     use HasFactory;
 
     public $guarded = [];
+    
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

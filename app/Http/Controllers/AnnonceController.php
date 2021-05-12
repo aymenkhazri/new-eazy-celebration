@@ -6,6 +6,8 @@ use App\Models\Categorie_evenement;
 use App\Models\Categorie_service;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Demande;
+use Illuminate\Support\Facades\DB;
 class AnnonceController extends Controller
 {
     /**
@@ -17,11 +19,18 @@ class AnnonceController extends Controller
     {
         $annonces = Annonce::latest()
         ->where('user_id',Auth::user()->id)
-        ->paginate(2);
-       
+        ->paginate(5);
+
+      
+    
+    
+
+
+
+            
   
         return view('clients.annonces.index',compact('annonces')) 
-          ->with('i', (request()->input('page', 1) - 1) * 2);
+         ;
     }
 
     /**
@@ -32,7 +41,7 @@ class AnnonceController extends Controller
     public function create()
     {
         $type_categories= Categorie_evenement::all();
-        $type_services= Categorie_service::pluck( 'type_service','id');
+        $type_services= Categorie_service::all();
         return view('clients.annonces.create',compact('type_categories','type_services'));
     }
 
@@ -42,14 +51,20 @@ class AnnonceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , Annonce $annonce )
+    public function store(Request $request  )
     {
       
-     
-        $annonce = Annonce::create($request->except(['categorie_service_id']));
-        $annonce->user_id =Auth::user()->id;
-        $annonce->save();
-        $annonce->categorie_services()->sync($request->categorie_service_id);
+        $annonce = Annonce::create([
+            'categorie_evenement_id' => $request->categorie_evenement_id,
+            'categorie_service_id' => $request->categorie_service_id,
+            'description' => $request->description,
+            'date_event' => $request->date_event,
+            'adresse_event' => $request->adresse_event,
+            'user_id' => Auth::user()->id,
+            
+        ]) ;
+      
+    
         
         return redirect()->route('annonces.index')
                         ->with('success','annonces créé avec succès.');

@@ -1,7 +1,10 @@
 @extends('fournisseurs.index')
   
 @section('content')
-
+<br>
+<br>
+<br>
+<br>
 
 <section class="box-content box-1">
 			<div class="container" id="services">

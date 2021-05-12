@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Models\Categorie_evenement ;
+use App\Models\Categorie_service;
+use App\Models\Annonce;
+use App\Models\Demande;
 use App\Models\User;
 use Auth;
 use Hash ;
@@ -10,6 +15,13 @@ use Session ;
 use Illuminate\Support\Facades\DB;
 class ClientsController extends Controller
 {
+
+
+
+
+
+
+
        
     public function home(Request $request)
     {
@@ -51,7 +63,8 @@ class ClientsController extends Controller
     {
 
         
-        return view('clients.accueil');
+       
+        return view('clients.accueil') ;
     }
 
     public function edit_profile()
@@ -172,6 +185,63 @@ class ClientsController extends Controller
 
 
 
+
+
+
+
+      public function evenements()
+    {
+
+        $categorie_evenements=Categorie_evenement::all();
+        return view('clients.evenements',compact('categorie_evenements'));
+    }
+
+    public function services()
+    {
+
+        $categorie_services = Categorie_service::all();
+        return view('clients.services',compact('categorie_services'));
+    }
+
+
+
+
+    public function filtre_evenement($id)
+    {
+        $categorie_evenements=Categorie_evenement::find($id);
+  
+        $annonces = Annonce::latest()
+             ->where('categorie_evenement_id',$categorie_evenements->id)
+             ->get();
+        return view('clients.filtre_evenement',compact('annonces'));
+    }
+
+
+
+    public function filtre_service($id)
+    {
+        $categorie_services=Categorie_service::find($id);
+  
+        $annonces = Annonce::latest()
+             ->where('categorie_service_id',$categorie_services->id)
+             ->get();
+        return view('clients.filtre_service',compact('annonces'));
+    }
+
+
+    
+    public function filtre_demande($id)
+    {
+        $annonces=Annonce::find($id);
+  
+        $demandes = Demande::latest()
+             ->where('annonce_id',$annonces->id)
+             ->get();
+            
+        return view('clients.annonces.filtre_demande',compact('demandes'));
+    }
+
+ 
 }
 
 

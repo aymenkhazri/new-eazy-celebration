@@ -1,4 +1,6 @@
-
+@extends('accueil0.index')
+  
+@section('content')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href=" {{ asset('loginn/vendor/select2/select2.min.css') }}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href=" {{ asset('loginn/css/utill.css') }}">
-	<link rel="stylesheet" type="text/css" href=" {{ asset('loginn/css/mainnn.css') }}">
+	<link rel="stylesheet" type="text/css" href=" {{ asset('loginn/css/mainnnn.css') }}">
 <!--===============================================================================================-->
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,29 +35,34 @@
 </head>
 <body>
 	
-	<div class="limiter">
-		<div class="container-login100" style="background-image: url('bg-1.jpg');">
+	<div class="limiter" style="background-image: url('bg-1.jpg');">
+	<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	                 <div  style=" margin-left:200px;" >
+						 <a  href="{{ url('/') }}"> <i class="fas fa-chevron-circle-left" style="  font-size:35px;"></i> </a>
+                         </div>
+
+		<div class="container-login100" >
+		
 			<div class="wrap-login100 p-t-190 p-b-30">
                 
             <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
             @csrf
 
-            <div class="o-container">
-						<div class="c-slack">
-						  <span class="c-slack__dot c-slack__dot--a"></span>
-						  <span class="c-slack__dot c-slack__dot--b"></span>
-						  <span class="c-slack__dot c-slack__dot--c"></span>
-						  <span class="c-slack__dot c-slack__dot--d"></span>
-						</div>
-					</div>
+			<br>
+
                    
                     <span class="loginn100-form-title ">
                         
                         <x-auth-validation-errors  :errors="$errors" />
                         </span>
-                        <div class="pull-right" style=" margin-left:600px;" >
-                        <a class="btn btn-info" href="{{ url('/') }}">Retour</a>
-                         </div>
+                       
                         
 
 					<span class="login100-form-title p-t-20 p-b-45">
@@ -179,3 +186,12 @@
 
 </body>
 </html>
+
+
+<style >
+.header_wrap:not([class*="bg_"]):not([class*="bg-"]).transparent_header {
+background-color: transparent;
+
+}
+</style>
+@endsection

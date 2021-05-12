@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Fournisseurs;
 use Illuminate\Http\Request;
+
+use App\Models\Categorie_evenement ;
+
+
 use App\Models\User;
 use App\Models\Categorie_service;
 use Auth;
@@ -154,6 +158,24 @@ class FournisseursController extends Controller
       {
           $user=User::find($id);
           return view('superviseur.fournisseur.show',compact('user'));
+      }
+
+
+
+
+
+      public function evenements()
+      {
+  
+          $categorie_evenements=Categorie_evenement::all();
+          return view('fournisseurs.evenements',compact('categorie_evenements'));
+      }
+  
+      public function services()
+      {
+  
+          $categorie_services = Categorie_service::all();
+          return view('fournisseurs.services',compact('categorie_services'));
       }
 
 

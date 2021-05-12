@@ -16,14 +16,15 @@ class CreateAnnoncesTable extends Migration
         Schema::create('annonces', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('type_categorie_id');
-        
+            $table->unsignedBigInteger('categorie_evenement_id');
+            $table->unsignedBigInteger('categorie_service_id');
             $table->string('description');
             $table->string('date_event');
             $table->string('adresse_event');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+          
            
         });
     }

@@ -1,146 +1,220 @@
 @extends('fournisseurs.index')
   
 @section('content')
+<br>
+<br>
+<br>
+<br>                                
 
-
-
-
-
-<section class="box-content box-1">
-			<div class="container" >
+    
+        <div style=" margin-left:100px;"  >
+           <h2 > <a   href="{{ url('/demandes') }}"> <i class="fas fa-chevron-circle-left"></i> </a></h2> 
+     
+        </div>
+			<div class="container"  >
 				<div >
 					<div class="col-lg-12" style="text-align:center">
-						<h2>Annonces</h2>
-						<hr>
-							
-						</div>
+						<h2> Demande</h2>
+					
+						
+                        </div>
+                        </div>
+					
+					
+                    
+   
 
+    
+               
+  
+  
+   <table  class="table    " >
+  
+    <tr >
+   
+      <td style="width:40%"    >
+      <div >
+      
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+    
+<br>
  
+    <br>
+    <div class="pull-right">
+                <a class="btn btn-success btn-sm"href="{{ url('fournisseur/create',$annonce->id) }}">  Créer votre demande</a>
+            </div> 
+    <br>
+    @foreach ($demandes as $demande)  
+    <div class="row justify-content-center">
+      
+      <div class="col-lg-12 col-md-12">
+          <div class="blog_post blog_style1 box_shadow1">
+              
+              <div class="blog_content bg-white">
+                  <div class="blog_text"  >
+               
+                      <br>
+                      <h4 style="text-align:center">Votre demande </h4>
+                      
+                      <br>
+                 
+                     
+                               
 
+   
 
-
-
-
-
-
-		 
-
-
-<div class="row">
-<div class="col-lg-12 margin-tb">
-<div class="pull-left">
+   
+       <div class=" col-sm-8 col-md-8"  style=" margin-left:70px;" >
+           <div class="form-group">
+          <strong> Montant : </strong> 
+               <input name="montant" value="{{ $demande->montant}} DT" class="form-control" >
+           </div>
+       </div>
 <br>
+       
+       
+       <div class="col-sm-8 col-md-8" style=" margin-left:70px;">
+           <div class="form-group" style="height:70%">
+             
+           <strong>Description : </strong> 
+               <input   name="description" value="{{ $demande->description}}"  class="form-control" >
+               
+           </div>
+       </div>
+
+   
+      <br> 
+     
+
+
+       <div class=" col-sm-12 col-md-8 text-center" style=" margin-left:70px;">
+   
+     
+   
+   
+
+       <a class="btn btn-danger btn-sm " href="{{  url('destroydemande',$demande->id) }}">Supprimer</a>
+
+
+
+       <br> 
+
+                   
+
 <br>
-<font size="5" color="#4d1919">Vérifiez toutes les Annonces : </font>
-</div>
-<br>
-<br>
-<div class="pull-right"  >
+
+               
+       </div>
+  
+      
+     
+
+
+                  </div>
                   
-<div class="dropdown">
-  <button class="dropbtn">Choisir une service</button>
-  <div class="dropdown-content">                                      
-  @foreach($categorie_services as $categorie_service)
-  <a href="{{url('/fournisseur/demandes/{$categorie_service->slug}')}}">{{$categorie_service->type_service}}</a>
-  @endforeach
- 
+              </div>
+              
+          </div>
+      </div>
+    
   </div>
-</div>
-</div>
+  @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
 
 
 </div>
-</div>
+      </td>
+
+
+      <td  >
+
+      </td>
+      <td  style="width:40%"   >
+      <div >
 
 <br>
-@if ($message = Session::get('succes'))
-<div class="alert alert-success">
-<p>{{ $message }}</p>
+<br>
+<br>
+<br>
+      <div class="row justify-content-center">
+      
+        	<div class="col-lg-12 col-md-12">
+            	<div class="blog_post blog_style1 box_shadow1">
+                
+                	<div class="blog_img">
+                    
+                        <a href="blog-single.html">
+                        <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}"  height="150px;" alt="product_img1">
+                        </a>
+                    </div>
+                    <div class="blog_content bg-white">
+                    	<div class="blog_text"  >
+                        <p>   <strong>Anonnce de  : </strong>  {{$annonce->user->name}}  {{$annonce->user->prenom	}} </p>
+                        
+                            <p> <strong>Evenement : </strong> {{ $annonce->categorie_evenement->type_evenement}}</p>
+								<p> <strong>Service : </strong> {{ $annonce->categorie_service->type_service}}</p>
+								<p> <strong>Description : </strong> {{ $annonce->description}}</p>
+								<p> <strong>Date d'evenement : </strong> {{ $annonce->date_event}}</p>
+								<p> <strong>Adresse de evenement : </strong> {{ $annonce->adresse_event}}</p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+          
+        </div>
 </div>
-@endif
-<br>
-<br>
-
-<div class="row" >
-@foreach ($annonces as $annonce)
-
-<div class="col-sm-6 box-item" >
-<div class="card">
-
-
-<table class="table   table-bordered "  style="background-color:#e1f1f0;">
-<tr style="background-color:#4ECDC4;">
-<td colspan="2"  style="text-align:center"> <h6><img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   />  <strong  style=" margin-left:80px;">{{$annonce->user->name}}</strong>  <strong>{{$annonce->user->prenom	}} </strong> </h6></td>
-</tr>
-<tr >
-<td style="width:50%" > Categorie : </td><td >{{ $annonce->type_categorie_id}} </td>
-</tr>
-<tr >
-<td > Les services :</td><td >  @foreach($annonce->categorie_services as $anno)
-								 {{ $anno->type_service}},
-							  @endforeach</td>
-
-
-
-
-
-</tr>
-<tr >
-<td > Description :</td><td >{{ $annonce->description}} </td>
-</tr>
-<tr >
-<td >Date evenement :</td><td >{{ $annonce->date_event}} </td>
-</tr>
-<tr >
-<td > Adresse evenement </td><td >{{ $annonce->adresse_event}} </td>
-</tr>
-<tr >
-<td colspan="2" style="text-align:center"> 
-
-
-<a class="btn btn-success" href="{{ url('fournisseur/create',$annonce->id) }}"> Demandes</a>
-				
-
-			
- </td>
-</tr>
 	
 
-</table>
 
-
+      
+      </td>
+    
+    </tr>
+    </table>
+   
+   
 </div>
-<br>
-<br>
-
-</div>
-
-@endforeach	
-
-</div>	
-
-
-
 
 
 
 </div>
-
-<br>
-<br>
-<br>
-
-
-</div>
-
-<div align="center">
-  
-  {!! $annonces->links() !!}
-  </div>
+			
+			
+			
+			</div>
 
 
 
 
-</section>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
 
 @endsection

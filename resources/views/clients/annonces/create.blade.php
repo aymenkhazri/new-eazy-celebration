@@ -47,11 +47,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong align="right">Type de categorie :</strong>
-                <select name="type_categorie_id" class="form-control">
+                <select name="categorie_evenement_id" class="form-control">
            
              
                     @foreach($type_categories as $type_categorie)
-                    <option value="{{$type_categorie->type_evenement}}">{{$type_categorie->type_evenement}}</option>
+                    <option value="{{$type_categorie->id}}">{{$type_categorie->type_evenement}}</option>
                     @endforeach
                 </select>
                 
@@ -62,13 +62,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Type de service :</strong>
-
-                {!! Form::select('categorie_service_id[]', 
-    $type_services, 
-    null, 
-    ['class' => 'form-control', 
-    'multiple' => 'multiple']) !!}
-               
+                <select name="categorie_service_id" class="form-control">
+           
+             
+           @foreach($type_services as $type_service)
+           <option value="{{$type_service->id}}">{{$type_service->type_service}}</option>
+           @endforeach
+       </select>
                 
             </div>
         </div>

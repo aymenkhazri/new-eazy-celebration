@@ -11,15 +11,19 @@ class Annonce extends Model
 
     public $guarded = [];
 
-    public function categorie_services(){
-        return $this->belongsToMany('App\Models\Categorie_service');
+
+
+    public function categorie_evenement(){
+        return $this->belongsTo('App\Models\Categorie_evenement');
+    }
+
+    public function categorie_service(){
+        return $this->belongsTo('App\Models\Categorie_service');
 }
 
 
 
-public function categorie_evenement(){
-    return $this->belongsTo('App\Models\Categorie_evenement');
-}
+
 
 public function user(){
     return $this->belongsTo('App\Models\User');

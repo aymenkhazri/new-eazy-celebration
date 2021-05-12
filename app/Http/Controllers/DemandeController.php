@@ -22,15 +22,34 @@ class DemandeController extends Controller
         $annonces = Annonce::latest()->paginate(4);
         $categorie_services = Categorie_service::all();
 
-      
-      
-       
-       
-
-        return view('fournisseurs.demandes.index',compact('annonces','categorie_services',)) 
+        return view('fournisseurs.demandes.filtre_annonce',compact('annonces','categorie_services',)) 
           ->with('i', (request()->input('page', 1) - 1) * 2);
     }
 
+    public function filter($id)
+    {
+      
+       
+        
+        $categorie_service=Categorie_service::find($id);
+   
+        $annonces = Annonce::latest()
+             ->where('categorie_service_id',$categorie_service->id)
+             ->paginate(3);
+
+             $categorie_services = Categorie_service::all();
+
+
+
+ 
+
+
+    return view('fournisseurs.demandes.filtre_annonce',compact('annonces','categorie_services',)) 
+    ->with('i', (request()->input('page', 1) - 1) * 2);
+
+ 
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -54,14 +73,9 @@ class DemandeController extends Controller
      */
     public function store(Request $request ,$id)
     {
-        $request->validate([
-            'montant' => 'required',
-            'description' => 'required',
-           
-            
-          
-        ]);
-  
+
+      
+       
         $demande = Demande::create([
             'montant' => $request->montant,
             'description' => $request->description,
@@ -72,9 +86,12 @@ class DemandeController extends Controller
           
         ]);
      
-
-        return redirect()->route('demandes.index')
-                        ->with('succes','demande créé avec succès.');
+        $annonce=Annonce::find($id);
+        $demandes = Demande::where('annonce_id',$annonce->id)
+             ->get();
+      
+        return view('fournisseurs.demandes.index',compact('demandes','annonce'))
+                        ->with('success','demande créé avec succès.');
     }
 
     /**
@@ -83,9 +100,15 @@ class DemandeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function indexdemande($id)
     {
-        //
+       
+        $annonce=Annonce::find($id);
+  
+        $demandes = Demande::where('annonce_id',$annonce->id)
+             ->get();
+            
+        return view('fournisseurs.demandes.index',compact('demandes','annonce'));
     }
 
     /**
@@ -117,8 +140,12 @@ class DemandeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+     
+      $demande=Demande::find($id);
+        $demande->delete();
+  
+        return back()->with('success','demande Supprimé avec succès') ;        
     }
 }
