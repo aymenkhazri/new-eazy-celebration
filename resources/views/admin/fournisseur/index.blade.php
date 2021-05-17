@@ -1,7 +1,8 @@
 @extends('admin.index')
  
 @section('content')
-
+<br>
+<br>
 <div class="container-fluid">
 
 <div align="center">
@@ -34,7 +35,7 @@
             <th style="text-align:center">Type de service</th>
 
           
-            <th width="170px" style="text-align:center">Action</th>
+            <th width="105px" style="text-align:center">Action</th>
         </tr>
         @foreach ($users as $user)
         <tr>
@@ -53,13 +54,13 @@
             <td>
                 <form action="{{ route('fournisseurs.destroy',$user->id) }}" method="POST">
    
-                <a class="btn btn-primary" href="{{ route('fournisseurs.show',$user->id) }}">Voir</a>
+                <a class="btn btn-primary" href="{{ route('fournisseurs.show',$user->id) }}"><i class="far fa-eye"></i></a>
                     
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </form>
                
             </td>

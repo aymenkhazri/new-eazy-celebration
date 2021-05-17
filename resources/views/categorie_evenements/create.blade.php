@@ -1,6 +1,8 @@
 @extends('admin.index')
   
 @section('content')
+<br>
+<br>
 <font size="5" color="#4d1919">Créer une nouvelle type evenement : </font>
 <div class="container">
 <br>

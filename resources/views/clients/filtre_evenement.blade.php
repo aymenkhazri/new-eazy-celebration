@@ -42,7 +42,7 @@
             	<div class="blog_post blog_style1 box_shadow1">
                 	<div class="blog_img">
                         <a href="blog-single.html">
-                        <img src="{{asset('images')}}/{{ $annonce->categorie_evenement->image}}"  height="180px;" alt="product_img1">
+                        <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}"  height="180px;" alt="product_img1">
                         </a>
                     </div>
                     <div class="blog_content bg-white">

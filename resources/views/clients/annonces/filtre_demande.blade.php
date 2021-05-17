@@ -20,11 +20,11 @@
            <h2 > <a   href="{{ url('/annonces') }}"> <i class="fas fa-chevron-circle-left"></i> </a></h2> 
      
          </div>
-	<div class="container" >
+	<div class="container-fluid" >
     	<div class="row justify-content-center">
         	<div class="col-lg-6 col-md-8">
             	<div class="heading_s1 text-center">
-                <h1>Evenements</h1>
+                <h1>Demandes</h1>
 					<hr>
                 </div>
 <br>

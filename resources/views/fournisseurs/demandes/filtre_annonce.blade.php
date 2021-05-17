@@ -107,7 +107,7 @@
                         <div class="product " style="  border-radius: 20px;" >
                             <div class="product_img  " style="  border-radius: 20px;" >
                                 <a href="shop-product-detail.html">
-                                <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}" width="250px;" height="305px;"alt="product_img1">
+                                <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}" width="250px;" height="340px;"alt="product_img1">
                                 </a>
                                
                             </div>
@@ -118,7 +118,7 @@
                            <br>
                
                                
-                           <p>     <strong> Evenement : </strong><td style="text-align:center ;" >{{ $annonce->categorie_evenement->type_evenement}} <strong style=" margin-left:430px;"> <img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   />  <strong  style=" margin-left:10px;">{{$annonce->user->name}}</strong>  <strong >{{$annonce->user->prenom	}} </strong></strong> </td> </p>
+                           <p>     <strong> Evenement : </strong><td style="text-align:center ;" >{{ $annonce->categorie_evenement->type_evenement}} <strong style=" margin-left:410px;"> <img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   />  <strong  style=" margin-left:10px;">{{$annonce->user->name}}</strong>  <strong >{{$annonce->user->prenom	}} </strong></strong> </td> </p>
                                
                                     
                                  

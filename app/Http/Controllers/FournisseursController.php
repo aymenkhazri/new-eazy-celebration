@@ -50,9 +50,12 @@ class FournisseursController extends Controller
     
     public function accueil()
     {
-        return view('fournisseurs.accueil');
+        $categorie_services = Categorie_service::all();
+        $categorie_evenements=Categorie_evenement::all(); 
+        return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services'));
     }
 
+  
     
     public function edit_profile()
 

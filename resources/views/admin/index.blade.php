@@ -40,7 +40,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/stylee.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/styleee.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
   <script src="{{ asset('lib/chart-master/Chart.js') }}"></script>
 
@@ -102,10 +102,10 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <h5 class="centered">{{ Auth::user()->name }} <span >{{ Auth::user()->prenom }}</span> </h5>
          <hr>
-         
+         <p>    
          
           <li class="mt">
-            <a class="active"  href="{{url('bienvenue')}}">
+            <a class="active"  href="{{url('/admin/accueil')}}">
             
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-home"> </span> <span>Accueil</span></font>
               </a>
@@ -120,10 +120,10 @@
    
 
 
-
+<p>
 
     <li class="sub-menu">
-      <a class="javascript:;">
+      <a class="javascript:;"  href="">
      
      
       <font size="3.5" color="#D2D2D2"  ><span class="fas fa-users"> </span> <span> Superviseurs</span></font>
@@ -137,10 +137,11 @@
         </ul>
      </li>
     
-
-  
+     
+     </p>  
+      <p>
      <li class="sub-menu">
-      <a class="javascript:;">
+      <a class="javascript:;"  href="">
      
      
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"> </span>    <span> Evenements </span></font>  
@@ -152,11 +153,11 @@
        
         </ul>
      </li>        
-
-          
+     </p>  
+      <p>
   
      <li class="sub-menu">
-      <a class="javascript:;">
+      <a class="javascript:;"  href="">
      
       
       <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"> </span>   <span  >  Services </span></font>
@@ -169,10 +170,11 @@
         </ul>
      </li>   
         
-
+     </p>  
+      <p>
         
 
-     <li class="sub-menu">
+     <li class="sub-menu"  href="">
       <a class="javascript:;"  href="{{route('clients.index')}}" >
      
       
@@ -182,9 +184,10 @@
      
      </li>
 
+     </p>  
+      <p>
 
-
-     <li class="sub-menu">
+     <li class="sub-menu"  href="">
       <a class="javascript:;"  href="{{route('fournisseurs.index')}}" >
      
       
@@ -193,7 +196,8 @@
      
      </li>
 
-
+     </p>  
+      <p>
      <li class="sub-menu">
       <a class="javascript:;"   href="{{url('/admin/annonces')}}" >
 
@@ -202,9 +206,10 @@
       </a>
      
      </li>
-
+     <p>
+     </p>  
      <li class="sub-menu">
-      <a class="javascript:;" >
+      <a class="javascript:;" href="{{url('/admin/demande')}}"  >
      
       
       <font size="3.5" color="#D2D2D2"    > <span class="fas fa-list-alt"> </span> <span> Demandes</span></font>
@@ -214,16 +219,18 @@
 
 
 
-
+     </p>  
+      <p>  
      <li class="sub-menu">
-      <a class="javascript:;"  >
+      <a class="javascript:;"  href="" >
      
       
       <font size="3.5" color="#D2D2D2" ><span class="fas fa-file-invoice-dollar"> </span> <span> Factures</span></font>
       </a>
      
      </li>
-
+    
+     </p>  
 
         </ul>
         <!-- sidebar menu end-->
@@ -237,9 +244,10 @@
     <section id="main-content">
       <section class="wrapper">
       
-      <br>
+    
      
-     
+     <br>
+    
       
       
      
@@ -263,6 +271,7 @@
     <!--footer end-->
   </section>
 
+  
 
 
   <script src=" {{ asset(' lib/jquery/jquery.min.js') }} "></script>

@@ -34,7 +34,7 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/zabuto_calendar.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('lib/gritter/css/jquery.gritter.css') }}" />
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/stylee.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/styleee.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
   <script src="{{ asset('lib/chart-master/Chart.js') }}"></script>
 
@@ -100,7 +100,7 @@
 
          
           <li class="mt">
-            <a  class="active" href="{{url('bienvenue')}}" >
+            <a  class="active" href="{{url('/user/accueil')}}" >
             
             <font size="3.5" color="#D2D2D2" ><span class="fas fa-home"></span> <span>Accueil</span></font>
               </a>

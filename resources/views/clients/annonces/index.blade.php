@@ -79,7 +79,7 @@
                         <div class="product "  style="  border-radius: 20px;">
                             <div class="product_img " style="  border-radius: 20px;">
                                 <a >
-                                    <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}" width="250px;" height="300px;" alt="product_img1">
+                                    <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}" width="260px;" height="330px;" alt="product_img1">
                                 </a>
                                
                             </div>

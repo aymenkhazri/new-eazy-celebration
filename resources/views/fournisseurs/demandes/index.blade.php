@@ -61,6 +61,7 @@
                       <h4 style="text-align:center">Votre demande </h4>
                       
                       <br>
+                      <br>
                  
                      
                                
@@ -77,16 +78,17 @@
 <br>
        
        
-       <div class="col-sm-8 col-md-8" style=" margin-left:70px;">
-           <div class="form-group" style="height:70%">
+       <div class=" col-sm-8 col-md-10"  style=" margin-left:40px;">
+           <div  >
              
            <strong>Description : </strong> 
-               <input   name="description" value="{{ $demande->description}}"  class="form-control" >
+               {{ $demande->description}}
                
            </div>
        </div>
 
    
+      <br> 
       <br> 
      
 

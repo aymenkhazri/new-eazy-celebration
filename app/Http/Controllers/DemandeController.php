@@ -88,7 +88,8 @@ class DemandeController extends Controller
      
         $annonce=Annonce::find($id);
         $demandes = Demande::where('annonce_id',$annonce->id)
-             ->get();
+          ->where('user_id',Auth::user()->id)
+          ->paginate(1);
       
         return view('fournisseurs.demandes.index',compact('demandes','annonce'))
                         ->with('success','demande créé avec succès.');
@@ -106,8 +107,12 @@ class DemandeController extends Controller
         $annonce=Annonce::find($id);
   
         $demandes = Demande::where('annonce_id',$annonce->id)
-             ->get();
+             ->where('user_id',Auth::user()->id)
+             ->paginate(1);
             
+            
+          
+             
         return view('fournisseurs.demandes.index',compact('demandes','annonce'));
     }
 

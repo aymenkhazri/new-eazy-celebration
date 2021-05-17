@@ -92,6 +92,9 @@ Route::resource('/admin/categorie_services', 'App\Http\controllers\CategorieServ
 Route::resource('/admin/clients', 'App\Http\controllers\ClientsController' );
 Route::resource('/admin/fournisseurs', 'App\Http\controllers\FournisseursController' );
 Route::get('/admin/annonces', 'App\Http\controllers\AdminController@index');
+Route::get('/admin/accueil', 'App\Http\controllers\AdminController@accueil');
+Route::get('/admin/demande', 'App\Http\controllers\AdminController@demande');
+Route::get('/admin/filtre_demande/{id}', 'App\Http\controllers\AdminController@filtre_demande');
 
 
 
@@ -108,7 +111,7 @@ Route::get('/user/clients/show/{id}', 'App\Http\controllers\ClientsController@sh
 Route::get('/user/fournisseurs', 'App\Http\controllers\FournisseursController@indexsuperviseurs' );
 Route::get('/user/fournisseurs/show/{id}', 'App\Http\controllers\FournisseursController@showsuperviseurs' );
 Route::get('/user/annonces', 'App\Http\controllers\UserController@annonce');
-
+Route::get('/user/accueil', 'App\Http\controllers\UserController@accueil');
 
 
 

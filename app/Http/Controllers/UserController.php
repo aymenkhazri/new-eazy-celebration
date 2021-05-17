@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Demande;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Annonce;
 use Auth;
@@ -86,14 +87,31 @@ class UserController extends Controller
 
 
 
-    
-    public function annonce()
+ 
+
+
+
+    public function accueil()
     {
+
+
+        $superviseurs=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',2)
+        ->get();
+
+        $clients=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',3)
+        ->count();
+
+        $fournisseurs=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',4)
+        ->count();
+     
         $annonces = Annonce::latest()
-        ->paginate(2);
-       
-  
-        return view('superviseur.annonce.index',compact('annonces')) 
-          ->with('i', (request()->input('page', 1) - 1) * 2);
+        ->paginate(3);
+
+        return view('superviseur.accueil', compact('superviseurs','clients','fournisseurs','annonces'));
     }
+
+
 }
