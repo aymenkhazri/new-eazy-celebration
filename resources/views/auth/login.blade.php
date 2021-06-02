@@ -66,7 +66,7 @@
 
                      
                     <span class="loginn100-form-title ">
-                        
+				
                         <x-auth-validation-errors  :errors="$errors" />
                         </span>
 						
@@ -82,6 +82,11 @@
 						<span class="symbol-input100">
 							<i class="fa fa-user"></i>
 						</span>
+						@error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">

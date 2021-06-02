@@ -10,10 +10,7 @@
   <title>Eazy-Celebration</title>
 
 
-
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
 
@@ -59,9 +56,12 @@
         *********************************************************************************************************************************************************** -->
     <!--header start-->
     <header class="header black-bg">
+      
       <div class="sidebar-toggle-box">
+        
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
+      
       <!--logo start-->
       <a href="" class="logo"> <b> Eazy-Celebration <span><i class="fas fa-glass-cheers"></i>  </span></b></a>
       <!--logo end-->
@@ -87,7 +87,7 @@
                                         @csrf
                                     </form>
          </li>
-        
+     
         </ul>
       </div>
     </header>
@@ -99,10 +99,10 @@
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
-        <ul class="sidebar-menu" id="nav-accordion">
+        <ul class="sidebar-menu" >
           <h5 class="centered">{{ Auth::user()->name }} <span >{{ Auth::user()->prenom }}</span> </h5>
          <hr>
-         <p>    
+           
          
           <li class="mt">
             <a class="active"  href="{{url('/admin/accueil')}}">
@@ -120,10 +120,10 @@
    
 
 
-<p>
+
 
     <li class="sub-menu">
-      <a class="javascript:;"  href="">
+      <a class="javascript:;"  href="{{ route('superviseurs.index') }}">
      
      
       <font size="3.5" color="#D2D2D2"  ><span class="fas fa-users"> </span> <span> Superviseurs</span></font>
@@ -138,10 +138,9 @@
      </li>
     
      
-     </p>  
-      <p>
+   
      <li class="sub-menu">
-      <a class="javascript:;"  href="">
+      <a class="javascript:;"  href="{{ route('categorie_evenements.index') }}">
      
      
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"> </span>    <span> Evenements </span></font>  
@@ -153,11 +152,11 @@
        
         </ul>
      </li>        
-     </p>  
-      <p>
-  
-     <li class="sub-menu">
-      <a class="javascript:;"  href="">
+
+    
+        
+     <li>
+      <a class="javascript :;"  href="{{ route('categorie_services.index') }}" >
      
       
       <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"> </span>   <span  >  Services </span></font>
@@ -168,11 +167,24 @@
       <li> <a  href="{{ route('categorie_services.create') }}" ><span class="fas fa-list-alt"> </span> Ajout un Service</a></li>
        
         </ul>
-     </li>   
+     </li> 
         
-     </p>  
-      <p>
+
         
+     <li class="sub-menu">
+      <a class="javascript:;"  href="{{ route('abonnements.index') }}">
+     
+      
+      <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"> </span>   <span  >  Abonnements </span></font>
+      </a>
+      <ul class="sub">
+     
+      <li> <a  href="{{ route('categorie_services.index') }}" ><span class="fas fa-list-alt"> </span> Liste des abonnements</a></li>
+      <li> <a  href="{{ route('categorie_services.create') }}" ><span class="fas fa-list-alt"> </span> Ajout un abonnement</a></li>
+       
+        </ul>
+     </li> 
+
 
      <li class="sub-menu"  href="">
       <a class="javascript:;"  href="{{route('clients.index')}}" >
@@ -184,8 +196,7 @@
      
      </li>
 
-     </p>  
-      <p>
+     
 
      <li class="sub-menu"  href="">
       <a class="javascript:;"  href="{{route('fournisseurs.index')}}" >
@@ -196,8 +207,7 @@
      
      </li>
 
-     </p>  
-      <p>
+     
      <li class="sub-menu">
       <a class="javascript:;"   href="{{url('/admin/annonces')}}" >
 
@@ -206,8 +216,7 @@
       </a>
      
      </li>
-     <p>
-     </p>  
+      
      <li class="sub-menu">
       <a class="javascript:;" href="{{url('/admin/demande')}}"  >
      
@@ -219,8 +228,7 @@
 
 
 
-     </p>  
-      <p>  
+      
      <li class="sub-menu">
       <a class="javascript:;"  href="" >
      
@@ -230,7 +238,7 @@
      
      </li>
     
-     </p>  
+  
 
         </ul>
         <!-- sidebar menu end-->
@@ -268,7 +276,6 @@
       </div>
       </div>
     </footer>
-    <!--footer end-->
   </section>
 
   
@@ -331,7 +338,6 @@
       console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
     }
   </script>
-
 
 
 

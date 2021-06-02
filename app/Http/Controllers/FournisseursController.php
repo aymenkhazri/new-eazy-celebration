@@ -51,8 +51,13 @@ class FournisseursController extends Controller
     public function accueil()
     {
         $categorie_services = Categorie_service::all();
+
         $categorie_evenements=Categorie_evenement::all(); 
-        return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services'));
+
+        $fournisseurs=User::join('role_user','users.id','role_user.user_id')
+        ->where('role_id',4)
+        ->paginate(5);
+        return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services','fournisseurs'));
     }
 
   
@@ -170,14 +175,16 @@ class FournisseursController extends Controller
       public function evenements()
       {
   
-          $categorie_evenements=Categorie_evenement::all();
+          $categorie_evenements=Categorie_evenement::latest()
+          ->paginate(6);
           return view('fournisseurs.evenements',compact('categorie_evenements'));
       }
   
       public function services()
       {
   
-          $categorie_services = Categorie_service::all();
+          $categorie_services = Categorie_service::latest()
+          ->paginate(6);
           return view('fournisseurs.services',compact('categorie_services'));
       }
 

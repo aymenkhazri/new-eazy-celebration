@@ -3,7 +3,7 @@
 @section('content')
 <br>
 <br>
-<div class="container-fluid">
+<div class="container">
 
 <div align="center">
 <font    color="#bf4040" > <h1> ** Gestion des superviseurs  ** </h1> </font>
@@ -40,9 +40,9 @@
             <th style="text-align:center"> Prenom</th>
            
             <th style="text-align:center"> Email</th>
-            <th style="text-align:center"> Mot de passe</th>
+       
           
-            <th width="275px" style="text-align:center">Action</th>
+            <th width="150px" style="text-align:center">Action</th>
         </tr>
         @foreach ($superviseurs as $superviseur)
         <tr>
@@ -50,21 +50,21 @@
             <td style="text-align:center">{{ $superviseur->name}}</td>
             <td style="text-align:center">{{ $superviseur->prenom}}</td>
             <td style="text-align:center">{{ $superviseur->email}}</td>
-            <td style="text-align:center">{{ $superviseur->password}}</td>
+           
           
            
             <td>
                 <form action="{{ route('superviseurs.destroy',$superviseur->id) }}" method="POST">
    
-                    <a class="btn btn-primary" href="{{ route('superviseurs.show',$superviseur->id) }}">Voir</a>
+                    <a class="btn btn-primary" href="{{ route('superviseurs.show',$superviseur->id) }}"><i class="far fa-eye"></i></a>
     
-                    <a class="btn btn-warning" href="{{ route('superviseurs.edit',$superviseur->id) }}">Modifier</a>
+                    <a class="btn btn-warning" href="{{ route('superviseurs.edit',$superviseur->id) }}"><i class="far fa-edit"></i></a>
                     
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                    <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

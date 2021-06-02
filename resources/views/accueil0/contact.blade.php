@@ -8,6 +8,7 @@
 <br>
 <br>
 <br>
+<div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
 
 			<div class="container"  >
 				<div class="row heading">
@@ -70,5 +71,13 @@
 <br>
 <br>
 		<br>
+<style>
+		.nn {
+	background-color: #4ECDC4 !important;
+
+
+}
+
+</style>
 @endsection
 

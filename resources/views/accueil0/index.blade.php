@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
 <!-- Style CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/stylee.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/styleeee.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
 </head>
@@ -59,24 +59,25 @@
 
 <!-- START HEADER -->
 <header class="header_wrap fixed-top dd_dark_skin transparent_header">
+  
     <div class="light_skin main_menu_uppercase">
-    	<div class="container">
+    	<div style="width: 97%;">
             <nav class="navbar navbar-expand-lg"> 
-                <a class="navbar-brand" href="">
+                <a class="navbar-brand"  >
                  
 				
-                <font size="5.8" color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
+                <font  color="#4ECDC4" > <strong style=" margin-left:150px;" >Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
                 </a>
                
                 <div class="collapse navbar-collapse justify-content-center" >
                 
                 
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav" style=" margin-left:170px;">
                         <li>
-                            <a  class="nav-link  " href="{{ url('/accueil') }}">Accueil</a>
+                         <a  class="nav-link  " href="{{ url('/accueil') }}"> Accueil</a>
                           
                         </li>
-                        <li >
+                        <li  >
                             <a class="  nav-link " href="{{ url('/evenements') }}" >Evenements</a>
                            
                         </li>
@@ -85,20 +86,22 @@
                             
                             
                         </li>
-                        <li class="dropdown">
-                            <a class=" nav-link" href="{{ url('/propos') }}" >A propos</a>
+                        <li class="dropdown" >
+                            <a class=" nav-link" href="{{ url('/propos') }}" >A propos </a>
                             
                         </li>
                         <li >
                             <a class=" nav-link" href="{{ url('/contact') }}" >Contact</a>
                             
                         </li>
-                      
+                     
+                    
+
                     </ul>
                 </div>
-                <ul class="navbar-nav attr-nav align-items-center">
-                    
-                    
+                <ul class="navbar-nav  align-items-center"  >
+                <a class="nn btn  btn-sm staggered-animation " href="{{ route('register') }}"  data-animation="fadeInUp" data-animation-delay="0.5s" >S'inscrire</a>
+				<a class="nn  btn btn-sm  staggered-animation" data-animation="fadeInUp"    data-animation-delay="0.4s"  href="{{ route('login') }}" >Se connecter</a>
                 </ul>
             </nav>
         </div>
@@ -122,7 +125,7 @@
    
 </div>
 
-<br>
+
 		
 
 
@@ -274,6 +277,9 @@
 <script src="{{ asset('assets/js/jquery.elevatezoom.js') }}"></script>
 <!-- scripts js --> 
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
+
+ 
+
 
 
 </body>

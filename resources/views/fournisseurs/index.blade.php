@@ -59,7 +59,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
 <!-- Style CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/stylee.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/styleeee.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
 </head>
@@ -82,7 +82,7 @@
                 <a class="navbar-brand"  style=" margin-left:200px;"  >
                    
 				
-				<font size="5.8" color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
+				<font  color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -112,7 +112,7 @@
                         </li>
                     
 
-
+                     
                         
                         </div>
    
@@ -121,9 +121,9 @@
                
                 <ul class="navbar-nav attr-nav align-items-center">
                     
-                <li class="dropdown" >
-                <span class="centered"><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="40px;" width="40px;"></a></span> 
-                <a>  <font color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
+                <li class="dropdown" style=" margin-right:5px;">
+                <span class="centered"><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="45px;" width="45px;"></a></span> 
+                <a>  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
               
                         <div class="dropdown-menu rounded">
                             <ul> 
@@ -524,9 +524,13 @@
 
 
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
@@ -552,7 +556,7 @@ toastr.error("{{session('error')}}")
 
 </script>
 @endif
-@if (session('succes'))
+@if (session('success'))
     <script >
        
             toastr.success("{{ session('succes') }}");

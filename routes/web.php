@@ -26,16 +26,19 @@ Route::get('/propos', 'App\Http\controllers\Accueil0Controller@propos');
 Route::get('/contact', 'App\Http\controllers\Accueil0Controller@contact');
 
 
+Route::get('/indexpayment/{id}', 'App\Http\controllers\Accueil0Controller@indexpayment');
+Route::post('/payment/{id}', 'App\Http\controllers\Accueil0Controller@payment');
+
+Route::get('/choixpayment', 'App\Http\controllers\Accueil0Controller@choixpayment');
 
 
 
 
 
 
-
-
-Route::group(['middleware'=>['auth']], function () {
+Route::group(['middleware'=>['auth','isClient']], function () {
     Route::get('/dashboard','App\Http\controllers\DashboardController@index')->name('dashboard');
+    
    
 });
 
@@ -86,15 +89,31 @@ Route::get('destroydemande/{id}', 'App\Http\controllers\DemandeController@destro
 
 
 
+
+
+
+
 Route::resource('/admin/categorie_evenements', 'App\Http\controllers\CategorieEvenementController' );
 Route::resource('/admin/superviseurs', 'App\Http\controllers\SuperviseurController' );
 Route::resource('/admin/categorie_services', 'App\Http\controllers\CategorieServiceController' );
+Route::resource('/admin/abonnements', 'App\Http\controllers\AbonnementController' );
 Route::resource('/admin/clients', 'App\Http\controllers\ClientsController' );
 Route::resource('/admin/fournisseurs', 'App\Http\controllers\FournisseursController' );
 Route::get('/admin/annonces', 'App\Http\controllers\AdminController@index');
 Route::get('/admin/accueil', 'App\Http\controllers\AdminController@accueil');
 Route::get('/admin/demande', 'App\Http\controllers\AdminController@demande');
 Route::get('/admin/filtre_demande/{id}', 'App\Http\controllers\AdminController@filtre_demande');
+Route::resource('/annonce', 'App\Http\controllers\AdminController' );
+Route::post('/admin/avertissement/{id}', 'App\Http\controllers\AdminController@avertissement');
+Route::get('/admin/changeisban', 'App\Http\controllers\AdminController@bannir');
+
+
+
+
+
+
+
+
 
 
 

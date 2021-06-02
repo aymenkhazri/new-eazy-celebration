@@ -52,7 +52,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
 <!-- Style CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/stylee.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/styleeee.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
 </head>
@@ -75,7 +75,7 @@
                 <a class="navbar-brand"  style=" margin-left:200px;"  >
                    
 				
-				<font size="5.8" color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
+				<font  color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -112,9 +112,9 @@
                
                 <ul class="navbar-nav attr-nav align-items-center">
                     
-                <li class="dropdown " style=" margin-right:83px;" >
-                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="40px;" width="40px;"></a></span> 
-                <a>  <font color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
+                <li class="dropdown " style=" margin-right:60px;" >
+                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="45px;" width="45px;"></a></span> 
+                <a>  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
               
                         <div class="dropdown-menu rounded" >
                             <ul> 

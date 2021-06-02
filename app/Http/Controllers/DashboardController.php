@@ -15,13 +15,18 @@ class DashboardController extends Controller
 
             $categorie_services = Categorie_service::all();
             $categorie_evenements=Categorie_evenement::all(); 
-
-            return view('clients.accueil',compact('categorie_evenements','categorie_services'));
+            $fournisseurs=User::join('role_user','users.id','role_user.user_id')
+            ->where('role_id',4)
+            ->paginate(5);
+            return view('clients.accueil',compact('categorie_evenements','categorie_services','fournisseurs'));
 
         }elseif(Auth::user()->hasRole('fournisseur')){
             $categorie_services = Categorie_service::all();
-            $categorie_evenements=Categorie_evenement::all(); 
-            return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services'));
+            $categorie_evenements=Categorie_evenement::all();
+            $fournisseurs=User::join('role_user','users.id','role_user.user_id')
+              ->where('role_id',4)
+              ->paginate(5); 
+            return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services','fournisseurs'));
 
         }elseif(Auth::user()->hasRole('superviseur')){
 

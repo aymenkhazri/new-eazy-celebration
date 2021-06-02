@@ -70,13 +70,7 @@
             </div>
 
 
-            <div class="">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Mot de passe:</strong>
-                    <input type="text" name="password" value="{{ $superviseur->password}}" class="form-control" placeholder="motpasse">
-                </div>
-            </div>
+            
             
             <br>
       <br>
@@ -92,4 +86,5 @@
    
     </form>
     </div>
+    <br>
 @endsection

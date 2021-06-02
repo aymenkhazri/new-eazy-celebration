@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Annonce;
 use App\Models\Demande;
-
+use App\Models\Avertissement;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 class AdminController extends Controller
 {
@@ -65,5 +66,64 @@ class AdminController extends Controller
             
         return view('admin.annonce.filtre_demande',compact('demandes'));
     }
+
+
+    public function destroy(Request $request)
+    {
+      
+  
+
+        $annonces = Annonce::findOrFail($request->annonce_id);
+        $annonces->delete();
+
+      
+        
+        return redirect()->route('annonce.index')
+                        ->with('success','Annonce Supprimé avec succès');
+    }
+    
+
+
+    public function avertissement(Request $request ,$id)
+    {
+        $request->validate([
+          
+            'avertissement' => 'required',
+         
+            
+          
+        ]);
+  
+        $avertissements = Avertissement::create([
+            'emetteur_id' =>Auth::user()->id,
+            'accepteur_id' =>$id ,
+            'etat' =>'annonce' ,
+            'avertissement' => $request->avertissement,
+          
+        ]);
+    
+
+        return redirect()->route('annonce.index')
+                        ->with('success','Client a avertir avec succès.');
+    }
+
+
+
+    public function bannir(Request $request)
+    {
+
+
+       
+        $users=User::find($request->user_id);
+        dd($users);
+        $users->isban = $request->isban ;
+        $users->save() ;
+    
+
+        return redirect()->route('annonce.index')
+                        ->with('success','Client  a été banni avec succès.');
+    }
+
+
 
 }

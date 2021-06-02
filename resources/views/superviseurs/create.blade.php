@@ -66,6 +66,7 @@
         </div>
       
         <br>
+        <br>
 <br>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -76,5 +77,7 @@
    
 </form>
 </div>
+<br>
+<br>
 
 @endsection

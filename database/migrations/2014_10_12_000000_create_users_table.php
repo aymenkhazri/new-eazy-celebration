@@ -26,10 +26,12 @@ class CreateUsersTable extends Migration
 
             
             $table->string('date_naissance')->nullable();
+      
             $table->enum('genre', array('Homme', 'Femme'))->nullable();
             $table->string('adresse')->nullable();
             $table->string('telephone')->nullable();
             $table->string('type_service_id')->nullable();
+            $table->tinyInteger('isban')->default('0');
            
 
 

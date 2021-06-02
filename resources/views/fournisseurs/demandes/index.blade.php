@@ -48,6 +48,7 @@
                 <a class="btn btn-success btn-sm"href="{{ url('fournisseur/create',$annonce->id) }}">  Créer votre demande</a>
             </div> 
     <br>
+    
     @foreach ($demandes as $demande)  
     <div class="row justify-content-center">
       

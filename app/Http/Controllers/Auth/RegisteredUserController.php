@@ -9,6 +9,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Paiement;
+use App\Models\Fournisseur;
 
 class RegisteredUserController extends Controller
 {
@@ -40,19 +42,41 @@ class RegisteredUserController extends Controller
          
         ]);
 
-        Auth::login($user = User::create([
-            'name' => $request->name,
-            'prenom' => $request->prenom,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-       
-        
-        ]));
+   
 
-        $user->attachRole($request->user_type);
-        
-        event(new Registered($user));
+        if($request->user_type=='fournisseur'){
 
+
+            $fournisseur = Fournisseur::create([
+                'name' => $request->name,
+                'prenom' => $request->prenom,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'user_type'=>$request->user_type
+            
+            ]);
+
+            $paiements = Paiement::all();
+        
+            return view('accueil0.choixpayment',compact('paiements')); 
+        }else
+            {
+                
+                Auth::login($user = User::create([
+                    'name' => $request->name,
+                    'prenom' => $request->prenom,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password),
+               
+                
+                ]));
+        
+                $user->attachRole($request->user_type);
+        
+                event(new Registered($user));
+      
+     
         return redirect(RouteServiceProvider::HOME);
+           }
     }
 }

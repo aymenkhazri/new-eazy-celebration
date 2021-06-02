@@ -77,6 +77,64 @@
 </div>
 <!-- END SECTION BANNER -->
 
+
+
+
+
+
+
+
+<!-- START SECTION CATEGORIES -->
+<div class="section pt-0 small_pb">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-12">
+            	<div class="cat_overlap radius_all_5">
+                	<div class="row align-items-center">
+        				<div class="col-lg-3 col-md-4">
+                        	<div class="text-center text-md-left">
+                                <h4>Top 5 Fournisseurs</h4>
+                                <p class="mb-2">There are many variations of passages of Lorem</p>
+                                <a href="#" class="btn btn-line-fill btn-sm">Voir tout</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <div class="cat_slider mt-4 mt-md-0 carousel_slider owl-carousel owl-theme nav_style5" data-loop="true" data-dots="false" data-nav="true" data-margin="30" data-autoplay="true" data-responsive='{"0":{"items": "1"}, "380":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                            @foreach ($fournisseurs as $fournisseur)
+                            <div class="item">
+                            
+                                    <div class="categories_box">
+                                        <a href="#" style="  border-radius: 20px;">
+                                        <img src="{{asset('images')}}/{{ $fournisseur->avatar}}"  style="  border-radius: 20px;"   height="100px;" width="15px;" alt="product_img1">
+                                        
+                                            <span>{{ $fournisseur->name}}</span>
+                                            <span>{{ $fournisseur->type_service_id}}</span>
+                                        </a>
+                                    </div>
+                                 
+                                </div>
+                                @endforeach
+                             
+                                                                                    
+                            
+                               
+                            </div>
+                        </div>
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION CATEGORIES -->
+
+
+
+
+
+
+
+
 <style>
 .header_wrap:not([class*="bg_"]):not([class*="bg-"]).transparent_header {
 	background-color: transparent;
@@ -112,7 +170,7 @@
         <div class="row">
             <div class="col-md-12" >
 
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1  " data-loop="true" data-dots="false"  data-autoplay="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
+            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1  " data-loop="true" data-dots="false" data-nav="true" data-autoplay="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
 				@foreach ($categorie_evenements as $categorie_evenement)
                 	<div class="item" >
 					   
@@ -189,7 +247,7 @@
 		
         <div class="row">
             <div class="col-md-12">
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false"  data-autoplay="true" data-margin="30" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
+            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false" data-nav="true"  data-autoplay="true" data-margin="30" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
 				@foreach ($categorie_services as $categorie_service)
                 	<div class="item" >
 					   
@@ -239,6 +297,24 @@
 
 
 
+<style>
+
+
+
+.navbar .navbar-nav > li > .nav-link {
+	font-weight: 500;
+	padding: 32px 13px;
+
+	font-size: 20px;
+}
+
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+
+</style>
 
 
 

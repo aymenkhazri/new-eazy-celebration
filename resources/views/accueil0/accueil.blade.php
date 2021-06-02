@@ -27,7 +27,7 @@
                                        <p class="staggered-animation" data-animation="fadeInUp" data-animation-delay="0.4s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc id varius nunc.</p>
                                     
                                     <a class="btn btn-fill-out staggered-animation" href="{{ route('register') }}" data-animation="fadeInUp" data-animation-delay="0.5s">S'inscrire</a>
-									<a class="btn btn-fill-out staggered-animation" href="{{ route('login') }}"data-animation="fadeInUp" data-animation-delay="0.4s">Se connecter</a>
+									<a class="btn btn-fill-out staggered-animation" href="{{ route('login') }}" data-animation="fadeInUp" data-animation-delay="0.4s">Se connecter</a>
                                    
                    
                                 </div>
@@ -91,6 +91,26 @@
     padding: 30px 0 !important;
 	position: relative !important;
 }
+
+
+.navbar .navbar-nav > li > .nav-link {
+	font-weight: 500;
+	padding: 32px 13px;
+
+	font-size: 20px;
+}
+
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+
+.nn {
+	background-color: transparent !important;
+    color:transparent !important;
+}
+
 </style>
 <!-- END SECTION BANNER -->
 
@@ -125,7 +145,7 @@
         <div class="row">
             <div class="col-md-12" >
 
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1  " data-loop="true" data-dots="false"  data-autoplay="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
+            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1  " data-loop="true" data-dots="false"  data-nav="true" data-autoplay="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
 				@foreach ($categorie_evenements as $categorie_evenement)
                 	<div class="item" >
 					   
@@ -202,7 +222,7 @@
 		
         <div class="row">
             <div class="col-md-12">
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false"  data-autoplay="true" data-margin="30" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
+            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false"  data-nav="true" data-autoplay="true" data-margin="30" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{}}'>
 				@foreach ($categorie_services as $categorie_service)
                 	<div class="item" >
 					   
@@ -249,7 +269,25 @@
 <!-- END SECTION SHOP -->
            
 
+<style>
 
+
+
+.navbar .navbar-nav > li > .nav-link {
+	font-weight: 500;
+	padding: 32px 13px;
+
+	font-size: 20px;
+}
+
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+
+
+</style>
 
 
 

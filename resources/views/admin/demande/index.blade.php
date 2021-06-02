@@ -18,14 +18,10 @@
 <div class="section small_pt pb_70">
         
 	<div class="container-fluid" >
-    	<div class="row justify-content-center">
-        	<div class="col-lg-4 col-md-8">
-            	<div class="heading_s1 text-center">
-                <h1>Demandes</h1>
-					<hr>
+              <div align="center">
+                <font    color="#bf4040" > <h1> ** Gestion des offres  ** </h1> </font>
                 </div>
-<br>
-<br>
+
 
 
             </div>
@@ -33,11 +29,11 @@
         
   
             
-            <br>
-            <br>
+            
+            
             <div class="row justify-content" style=" margin-left:140px;">
        
-                <font size="5" color="#4d1919">Vérifiez toutes les Annonces : </font>
+                <font size="5" color="#4d1919">Vérifiez toutes les offres : </font>
                 </div>
          
          
