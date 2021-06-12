@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Demande;
 use App\Models\User;
+use App\Models\Avertissement;
 use Illuminate\Http\Request;
 use App\Models\Annonce;
 use Auth;
@@ -14,7 +15,9 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('superviseur.index');
+        $annonces = Annonce::latest()
+        ->paginate(6);
+        return view('superviseur.annonce.index', compact('annonces'));
 
     }
 
@@ -86,7 +89,19 @@ class UserController extends Controller
     }
 
 
+    public function destroy(Request $request)
+    {
+      
+  
 
+        $annonces = Annonce::findOrFail($request->annonce_id);
+        $annonces->delete();
+
+      
+        
+        return redirect()->route('annonces.index')
+                        ->with('success','Annonce Supprimé avec succès');
+    }
  
 
 
@@ -113,5 +128,57 @@ class UserController extends Controller
         return view('superviseur.accueil', compact('superviseurs','clients','fournisseurs','annonces'));
     }
 
+    public function avertissement(Request $request ,$id)
+    {
+        $request->validate([
+          
+            'avertissement' => 'required',
+         
+            
+          
+        ]);
+  
+        $avertissements = Avertissement::create([
+            'emetteur_id' =>Auth::user()->id,
+            'accepteur_id' =>$id ,
+            'etat' =>'annonce' ,
+            'avertissement' => $request->avertissement,
+          
+        ]);
+    
+
+        return redirect()->route('annonces.index')
+                        ->with('success','Client est averti avec succès.');
+    }
+
+    public function bannir0($id)
+    {
+
+        
+       
+        $users=User::find($id);
+       
+        $users->isban = 0;
+        $users->save() ;
+      
+
+        return redirect()->route('annonces.index')
+                        ->with('success','désactiver la banni avec succès.');
+    }
+
+    public function bannir1($id)
+    {
+
+      
+       
+        $users=User::find($id);
+ 
+        $users->isban = 1 ;
+        $users->save() ;
+    
+
+        return redirect()->route('annonces.index')
+                        ->with('success','Client  a été banni avec succès.');
+    }
 
 }

@@ -82,8 +82,7 @@ class AdminController extends Controller
                         ->with('success','Annonce Supprimé avec succès');
     }
     
-
-
+    
     public function avertissement(Request $request ,$id)
     {
         $request->validate([
@@ -104,25 +103,43 @@ class AdminController extends Controller
     
 
         return redirect()->route('annonce.index')
-                        ->with('success','Client a avertir avec succès.');
+                        ->with('success','Client est averti avec succès.');
     }
 
 
 
-    public function bannir(Request $request)
+
+
+    public function bannir0($id)
     {
 
-
+        
        
-        $users=User::find($request->user_id);
-        dd($users);
-        $users->isban = $request->isban ;
+        $users=User::find($id);
+       
+        $users->isban = 0;
+        $users->save() ;
+      
+
+        return redirect()->route('annonce.index')
+                        ->with('success','désactiver la banni avec succès.');
+    }
+
+    public function bannir1($id)
+    {
+
+      
+       
+        $users=User::find($id);
+ 
+        $users->isban = 1 ;
         $users->save() ;
     
 
         return redirect()->route('annonce.index')
                         ->with('success','Client  a été banni avec succès.');
     }
+
 
 
 

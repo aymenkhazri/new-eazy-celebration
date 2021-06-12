@@ -1,7 +1,7 @@
 @extends('superviseur.index')
  
 @section('content')
-
+<link rel="stylesheet" href="{{ asset('assets/css/styleeee.css') }}">
 <section id="content">
       <section >
         <div class="row">

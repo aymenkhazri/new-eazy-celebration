@@ -119,7 +119,7 @@
 
 
           <li class="sub-menu">
-      <a class="javascript:;"   href="{{url('/user/annonces')}}" >
+      <a class="javascript:;"   href="{{ route('annonces.index')}}" >
      
       
               <font size="3.5" color="#D2D2D2" ><span class="fas fa-list-alt"  > </span> <span>Annonces</span></font>
@@ -128,7 +128,8 @@
      </li>
 
      <li class="sub-menu">
-      <a class="javascript:;" >
+     <a class="javascript:;"   href="{{ route('demandes.index')}}" >
+     
      
       
       <font size="3.5" color="#D2D2D2"    > <span class="fas fa-list-alt"> </span> <span>Demandes</span></font>

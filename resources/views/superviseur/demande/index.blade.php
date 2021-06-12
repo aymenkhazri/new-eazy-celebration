@@ -1,4 +1,4 @@
-@extends('admin.index')
+@extends('superviseur.index')
   
 @section('content')
 
@@ -146,7 +146,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       
       </div>
-      <form action="{{ url('/admin/avertissement_demande') }}" method="POST">
+      <form action="{{ url('/user/avertissement_demande') }}" method="POST">
 
       @csrf
 	      <div class="modal-body">

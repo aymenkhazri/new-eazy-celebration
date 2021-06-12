@@ -218,7 +218,7 @@
      </li>
       
      <li class="sub-menu">
-      <a class="javascript:;" href="{{url('/admin/demande')}}"  >
+      <a class="javascript:;" href="{{ route('demandes.index') }}"  >
      
       
       <font size="3.5" color="#D2D2D2"    > <span class="fas fa-list-alt"> </span> <span> Demandes</span></font>
@@ -229,14 +229,7 @@
 
 
       
-     <li class="sub-menu">
-      <a class="javascript:;"  href="" >
      
-      
-      <font size="3.5" color="#D2D2D2" ><span class="fas fa-file-invoice-dollar"> </span> <span> Factures</span></font>
-      </a>
-     
-     </li>
     
   
 

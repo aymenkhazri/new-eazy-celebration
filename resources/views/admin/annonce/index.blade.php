@@ -59,20 +59,29 @@
                 	<div class="blog_img">
                         <a href="blog-single.html">
                         <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}"  height="180px;" alt="product_img1">
+                        <a class="A btn btn-fill-out btn-sm " href="{{ url('/admin/filtre_demande',$annonce->id) }}" >   Les Offres  </a> 
                         </a>
                    
                     </div>
                     <div class=" bg-white"  >
                     <br>
                     <tr>
-                    <strong style=" margin-left:15px;" > <img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   /> </strong>  <strong  style=" margin-left:10px;" >{{$annonce->user->name}}</strong>  <strong  >{{$annonce->user->prenom	}} </strong>  <strong > <a class="btn btn-fill-out btn-sm " href="{{ url('/admin/filtre_demande',$annonce->id) }}" style=" margin-left:90px;">   Demandes  </a> </strong> 
+                    <strong style=" margin-left:15px;" > <img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   /> </strong>  <strong  style=" margin-left:10px;" >{{$annonce->user->name}}</strong>  <strong  >{{$annonce->user->prenom	}} </strong>    <span  style=" margin-left:100px;">
+          @if( $annonce->user->isban=='0')
+           <label style=" border-radius:10%"  class="B btn py-1 btn-primary">Pas banné</label>
+            @elseif($annonce->user->isban=='1')
+            <label style=" border-radius:10%" class="B btn py-1 btn-danger"> banné</label>
+            @endif
+            </span>
                      </tr>
                     </div>
                     <div class="blog_content bg-white">
                     	<div class="blog_text"  >
                        
-                      
-                            <p> <strong>Evenement : </strong> {{ $annonce->categorie_evenement->type_evenement}}</p>
+                   
+                            <p>  <strong>Evenement : </strong> {{ $annonce->categorie_evenement->type_evenement}}   
+      
+			                    </p>
 								<p> <strong>Service : </strong> {{ $annonce->categorie_service->type_service}}</p>
 								<p> <strong>Description : </strong> {{ $annonce->description}}</p>
 								<p> <strong>Date d'evenement : </strong> {{ $annonce->date_event}}</p>
@@ -82,11 +91,20 @@
                         <br>
                         <div style="text-align:center"> 
                                    
+                      
                                                     
                                                     <a class="btn btn-info btn-sm "  data-toggle="modal" data-target="#Avertir" href="">Avertir</a>
 
-                                                    <a  data-user_id="{{ $annonce->user->user_id}}"   data-isban="{{ $annonce->user->isban}}" data-avatar="{{ $annonce->user->avatar}}" data-name="{{ $annonce->user->name}}" data-prenom="{{ $annonce->user->prenom}}"
-                                                     class="btn btn-warning btn-sm   " type="button"  data-toggle="modal" data-target="#Bannir" href="">Bannir</a>
+
+                                                  <select onchange="window.location.href=this.options[this.selectedIndex].value;" class="btn btn-warning btn-sm ">
+                                                  <option value="{{ url('/admin/changeisban',$annonce->user_id) }}">Statut</option>
+                                                      <option value="{{ url('/admin/changeisban0',$annonce->user_id) }}">Pas banni</option>
+                                                      <option value="{{ url('/admin/changeisban1',$annonce->user_id) }}">Banni</option> 
+                                         
+                                                  </select>
+                                                 
+                                             
+                                                   
                                                 
                                                     <button class="btn btn-danger btn-sm " data-catid={{$annonce->id}} data-toggle="modal" data-target="#delete">Supprimer</button>
                                     </div>
@@ -317,6 +335,18 @@ modal.find('.modal-body #isban').val(isban);
  </script>
 
  <style>
+ .A {
+    padding: 8px 20px;
+}
+.B {
+    padding: 8px 12px;
+}
+.btn-group-sm > .btn, .btn-sm {
+    padding: 8px 18px;
+}
+.btn + .btn {
+    margin-left: 8px;
+}
 .btn {
     display: inline-block;
    

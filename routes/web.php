@@ -99,17 +99,23 @@ Route::resource('/admin/categorie_services', 'App\Http\controllers\CategorieServ
 Route::resource('/admin/abonnements', 'App\Http\controllers\AbonnementController' );
 Route::resource('/admin/clients', 'App\Http\controllers\ClientsController' );
 Route::resource('/admin/fournisseurs', 'App\Http\controllers\FournisseursController' );
+
+
 Route::get('/admin/annonces', 'App\Http\controllers\AdminController@index');
 Route::get('/admin/accueil', 'App\Http\controllers\AdminController@accueil');
-Route::get('/admin/demande', 'App\Http\controllers\AdminController@demande');
+
 Route::get('/admin/filtre_demande/{id}', 'App\Http\controllers\AdminController@filtre_demande');
-Route::resource('/annonce', 'App\Http\controllers\AdminController' );
+Route::resource('/admin/annonce', 'App\Http\controllers\AdminController' );
 Route::post('/admin/avertissement/{id}', 'App\Http\controllers\AdminController@avertissement');
-Route::get('/admin/changeisban', 'App\Http\controllers\AdminController@bannir');
+Route::get('/admin/changeisban0/{id}', 'App\Http\controllers\AdminController@bannir0');
+Route::get('/admin/changeisban1/{id}', 'App\Http\controllers\AdminController@bannir1');
+
+Route::post('/admin/avertissement_demande', 'App\Http\controllers\AdminDemandeController@avertissement_demande');
 
 
-
-
+Route::resource('/admin/demandes', 'App\Http\controllers\AdminDemandeController' );
+Route::get('/admin/changedemandeisban0/{id}', 'App\Http\controllers\AdminDemandeController@bannir0');
+Route::get('/admin/changedemandeisban1/{id}', 'App\Http\controllers\AdminDemandeController@bannir1');
 
 
 
@@ -129,15 +135,15 @@ Route::get('/user/clients/show/{id}', 'App\Http\controllers\ClientsController@sh
 
 Route::get('/user/fournisseurs', 'App\Http\controllers\FournisseursController@indexsuperviseurs' );
 Route::get('/user/fournisseurs/show/{id}', 'App\Http\controllers\FournisseursController@showsuperviseurs' );
-Route::get('/user/annonces', 'App\Http\controllers\UserController@annonce');
 Route::get('/user/accueil', 'App\Http\controllers\UserController@accueil');
+Route::resource('/user/annonces', 'App\Http\controllers\UserController' );
 
 
-
-
-
-
-
+Route::get('/user/changeisban0/{id}', 'App\Http\controllers\UserController@bannir0');
+Route::get('/user/changeisban1/{id}', 'App\Http\controllers\UserController@bannir1');
+Route::post('/user/avertissement/{id}', 'App\Http\controllers\UserController@avertissement');
+Route::resource('/user/demandes', 'App\Http\controllers\UserDemandeController' );
+Route::post('/user/avertissement_demande', 'App\Http\controllers\UserDemandeController@avertissement_demande');
 
 
 
