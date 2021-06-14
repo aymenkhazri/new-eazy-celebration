@@ -57,13 +57,16 @@ Route::get('/client/edit_profile', 'App\Http\controllers\ClientsController@edit_
 Route::post('/client/accueil', 'App\Http\controllers\ClientsController@changepassword')->name('changepassword');
 Route::get('/client/edit_profile', 'App\Http\controllers\ClientsController@edit' );
 Route::post('/update', 'App\Http\controllers\ClientsController@update')->name('update');
-Route::resource('/annonces', 'App\Http\controllers\AnnonceController' );
+Route::resource('/client/annoncess', 'App\Http\controllers\AnnonceController' );
 
 Route::get('/evenementss', 'App\Http\controllers\ClientsController@evenements');
 Route::get('/servicess', 'App\Http\controllers\ClientsController@services');
 Route::get('filtre_evenement/{id}', 'App\Http\controllers\ClientsController@filtre_evenement');
 Route::get('filtre_service/{id}', 'App\Http\controllers\ClientsController@filtre_service');
 Route::get('filtre_demande/{id}', 'App\Http\controllers\ClientsController@filtre_demande');
+Route::get('accepter/{id}', 'App\Http\controllers\ClientsController@accepter');
+Route::get('refuser/{id}', 'App\Http\controllers\ClientsController@refuser');
+
 
 
 
@@ -113,7 +116,7 @@ Route::get('/admin/changeisban1/{id}', 'App\Http\controllers\AdminController@ban
 Route::post('/admin/avertissement_demande', 'App\Http\controllers\AdminDemandeController@avertissement_demande');
 
 
-Route::resource('/admin/demandes', 'App\Http\controllers\AdminDemandeController' );
+Route::resource('/admin/demande', 'App\Http\controllers\AdminDemandeController' );
 Route::get('/admin/changedemandeisban0/{id}', 'App\Http\controllers\AdminDemandeController@bannir0');
 Route::get('/admin/changedemandeisban1/{id}', 'App\Http\controllers\AdminDemandeController@bannir1');
 

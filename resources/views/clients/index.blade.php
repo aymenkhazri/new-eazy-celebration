@@ -75,7 +75,7 @@
                 <a class="navbar-brand"  style=" margin-left:200px;"  >
                    
 				
-				<font  color="#4ECDC4" > <strong>Eazy-Celebration  <i class="fas fa-glass-cheers"></i></strong></font>
+				<font  color="#4ECDC4" > <strong>Eazy-Celebration  client <i class="fas fa-glass-cheers"></i></strong></font>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -96,7 +96,7 @@
                             
                         </li>
                         <li class="dropdown">
-                            <a class=" nav-link" href="{{ url('/annonces') }}" >Annonces</a>
+                            <a class=" nav-link" href="{{ route('annoncess.index') }}" >Annonces</a>
                             
                         </li>
                         <li >
@@ -113,7 +113,7 @@
                 <ul class="navbar-nav attr-nav align-items-center">
                     
                 <li class="dropdown " style=" margin-right:60px;" >
-                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="45px;" width="45px;"></a></span> 
+                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" style=" border-radius:40%; " height="40px;" width="40px;"></a></span> 
                 <a>  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
               
                         <div class="dropdown-menu rounded" >
@@ -158,44 +158,39 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header" style="background-color:#4ECDC4;">
-          <button type="button" class="close"  data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"  align="center">Profil</h4>
-        </div>
-        <div class="modal-body"  >
+      <div class="modal-header"  style="background-color:#4ECDC4;">
+      <h4 class="modal-title text-center" id="myModalLabel"style="color:#ffff;" >Profil</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      
+      </div>
+        <div class="modal-body" style="text-align:center"  >
 
 
         <div class="row" >
    <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group"  align="center">
                    
-                <img src="{{asset('images')}}/{{ Auth::user()->avatar}}" style=" border-radius:50%; ">
+                <img src="{{asset('images')}}/{{ Auth::user()->avatar}}"  height="150px;" width="150px;" style=" border-radius:40%; ">
                 </div>
             </div>    
         </div>
+        <br>
         <br>
         <div class="row" >
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Nom : {{ Auth::user()->name }}</h3>
+				 <span > <h5> <strong >Nom : </strong> {{ Auth::user()->name }}   <strong style=" margin-left:20px;">Prenom : </strong> {{Auth::user()->prenom }} </h5></span >
 				 </div>
 			 </div>    
 		 </div>
-		 <div class="row" >
-	<div class="col-xs-12 col-sm-12 col-md-12">
-				 <div class="form-group">
-					
-				 <h3>Prenom : {{Auth::user()->prenom }}</h3>
-				 </div>
-			 </div>    
-		 </div>
+	
  
 		 <div class="row" >
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Email : {{ Auth::user()->email }}</h3>
+				 <h5> <strong> Email : </strong> {{ Auth::user()->email }}</h5>
 				 </div>
 			 </div>    
 		 </div>
@@ -204,7 +199,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Date de naissance:  {{ Auth::user()->date_naissance }}</h3>
+				 <h5> <strong>Date de naissance: </strong>  {{ Auth::user()->date_naissance }}</h5>
 				 </div>
 			 </div>    
 		 </div>
@@ -212,7 +207,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Adresse : {{ Auth::user()->adresse }}</h3>
+				 <h5> <strong>Adresse : </strong> {{ Auth::user()->adresse }}</h5>
 				 </div>
 			 </div>    
 		 </div>
@@ -220,7 +215,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Telephone : {{Auth::user()->telephone }}</h3>
+				 <h5> <strong>Telephone : </strong> {{Auth::user()->telephone }}</h5>
 				 </div>
 			 </div>    
 		 </div>
@@ -229,7 +224,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h3>Genre : {{ Auth::user()->genre }}</h3>
+				 <h5> <strong>Genre : </strong> {{ Auth::user()->genre }}</h5>
 				 </div>
 			 </div>    
 		 </div>
@@ -238,9 +233,9 @@
 
 <div class="modal-footer" >
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-
+    <button  type="button"  data-dismiss="modal" class="btn btn-sm btn-danger">Annuler</button>
     <a  href="{{  url('/client/edit_profile') }}" > <button type="submit" class=" btn btn-sm btn-primary" > Modifier</button></a>
-    <button  type="button"  data-dismiss="modal" class="btn btn-danger">Annuler</button>
+    
     </div>
        
        </div>

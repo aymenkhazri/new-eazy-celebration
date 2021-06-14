@@ -43,7 +43,7 @@ class AdminDemandeController extends Controller
 
      
     
-        return redirect()->route('demandes.index')
+        return redirect()->route('demande.index')
                         ->with('success','Fournisseur est averti avec succès.');
     }
 
@@ -59,7 +59,7 @@ class AdminDemandeController extends Controller
 
       
         
-        return redirect()->route('demandes.index')
+        return redirect()->route('demande.index')
                         ->with('success','Offre Supprimé avec succès');
     }
 
@@ -74,7 +74,7 @@ class AdminDemandeController extends Controller
         $users->save() ;
       
 
-        return redirect()->route('demandes.index')
+        return redirect()->route('demande.index')
                         ->with('success','désactiver la banni avec succès.');
     }
 
@@ -89,7 +89,7 @@ class AdminDemandeController extends Controller
         $users->save() ;
     
 
-        return redirect()->route('demandes.index')
+        return redirect()->route('demande.index')
                         ->with('success','Fournisseur  a été banni avec succès.');
     }
 }

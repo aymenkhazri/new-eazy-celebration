@@ -17,14 +17,14 @@
 <!-- START SECTION BLOG -->
 <div class="section small_pt pb_70">
          <div style=" margin-left:100px;"  >
-           <h2 > <a   href="{{ url('/annonces') }}"> <i class="fas fa-chevron-circle-left"></i> </a></h2> 
+           <h2 > <a   href="{{ route('annoncess.index') }}"> <i class="fas fa-chevron-circle-left"></i> </a></h2> 
      
          </div>
 	<div class="container-fluid" >
     	<div class="row justify-content-center">
         	<div class="col-lg-6 col-md-8">
             	<div class="heading_s1 text-center">
-                <h1>Demandes</h1>
+                <h1>les offres</h1>
 					<hr>
                 </div>
 <br>
@@ -37,8 +37,8 @@
        <br>
        <br>
         <div class="row justify-content-center">
-        @foreach ($demandes as $demande)
-        	<div class="col-lg-5 col-md-6 " >
+        @forelse ($demandes as $demande)
+        	<div class="col-lg-4 col-md-6 " >
             	<div class="blog_post blog_style1 box_shadow1">
                 	
                   
@@ -51,16 +51,34 @@
 								
 								
                         </div>
-                        <a class="btn btn-fill-out btn-sm " href="" style=" margin-left:300px;">   Accepter  </a>
+                        <br>
+                        <div > 
+                        <a class="btn btn-danger btn-sm " href="" style=" margin-left:160px;">   Refuser  </a> 
+                        <a class="btn  btn-info btn-sm " href="{{  url('accepter',$demande->user_id) }}"style=" margin-left:30px;">   Accepter  </a>
+                        </div>
                     </div>
                     
                 </div>
             </div>
-            @endforeach
+<br>
+
+            @empty
+           <h3  style="color: #687188;" ><i class="far fa-frown"  ></i> Ou qu'une réponse sur votre annonce <i class="far fa-frown"></i></h3>
+            @endforelse
         </div>
         
     </div>
 </div>
 <!-- END SECTION BLOG -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 @endsection

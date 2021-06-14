@@ -8,6 +8,8 @@ use App\Models\Categorie_evenement ;
 use App\Models\Categorie_service;
 use App\Models\Annonce;
 use App\Models\Demande;
+use App\Models\AccepterRefuser;
+
 use App\Models\User;
 use Auth;
 use Hash ;
@@ -68,7 +70,7 @@ class ClientsController extends Controller
         $fournisseurs=User::join('role_user','users.id','role_user.user_id')
         ->where('role_id',4)
         ->paginate(5);
-        return view('fournisseurs.accueil',compact('categorie_evenements','categorie_services','fournisseurs'));
+        return view('clients.accueil',compact('categorie_evenements','categorie_services','fournisseurs'));
     }
 
     public function edit_profile()
@@ -110,6 +112,12 @@ class ClientsController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'prenom' => 'required',
+            'email' => 'required',
+        
+        ]);
         
       $user=Auth::user();
       $user->name =$request['name'];
@@ -245,6 +253,20 @@ class ClientsController extends Controller
              ->get();
             
         return view('clients.annonces.filtre_demande',compact('demandes'));
+    }
+
+    
+    public function accepter($id)
+    {
+        $User=User::find($id);
+  
+        $annonce = AccepterRefuser::create([
+            'client_id' => Auth::user()->id,
+            'fournisseur_id' => $User->id,
+            'message' => 'Votre offre a été acceptée avec succès de la part de votre client',
+         
+        ]) ;
+        return view('clients.boit_chat');
     }
 
  

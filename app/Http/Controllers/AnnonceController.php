@@ -19,17 +19,18 @@ class AnnonceController extends Controller
     {
         $annonces = Annonce::latest()
         ->where('user_id',Auth::user()->id)
-        ->paginate(5);
+        ->paginate(3);
 
       
     
-    
+        $type_categories= Categorie_evenement::all();
+        $type_services= Categorie_service::all();
 
 
 
             
   
-        return view('clients.annonces.index',compact('annonces')) 
+        return view('clients.annonces.index',compact('annonces','type_categories','type_services')) 
          ;
     }
 
@@ -51,8 +52,16 @@ class AnnonceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request  )
+    public function store(Request $request )
     {
+
+        $request->validate([
+            'categorie_evenement_id' => 'required',
+            'categorie_service_id' => 'required',
+            'description' => 'required|max:225',
+            'date_event' => 'required',
+            'adresse_event' => 'required',
+        ]);
       
         $annonce = Annonce::create([
             'categorie_evenement_id' => $request->categorie_evenement_id,
@@ -66,8 +75,8 @@ class AnnonceController extends Controller
       
     
         
-        return redirect()->route('annonces.index')
-                        ->with('success','annonces créé avec succès.');
+        return redirect()->route('annoncess.index')
+                        ->with('success','Annonce créé avec succès.');
     }
 
     /**
@@ -87,10 +96,7 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -99,9 +105,22 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+           
+            'description' => 'required|max:225',
+            'date_event' => 'required',
+            'adresse_event' => 'required',
+        ]);
+  
+        $annonces = Annonce::findOrFail($request->id);
+
+        $annonces->update($request->all());
+       
+    
+        return redirect()->route('annoncess.index')
+          ->with('success','Annonce Mis à jour avec succés');
     }
 
     /**
@@ -110,12 +129,18 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+   
+    public function destroy(Request $request)
     {
-        $annonces=Annonce::find($id);
-        $annonces->delete();
+      
   
-        return redirect()->route('annonces.index')
-                        ->with('success','annonce Supprimé avec succès');
+      
+        $annonces = Annonce::findOrFail($request->annonce_id);
+        $annonces->delete();
+
+      
+        
+        return redirect()->route('annoncess.index')
+                        ->with('success','Annonce Supprimé avec succès');
     }
 }

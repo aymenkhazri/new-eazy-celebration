@@ -218,7 +218,7 @@
      </li>
       
      <li class="sub-menu">
-      <a class="javascript:;" href="{{ route('demandes.index') }}"  >
+      <a class="javascript:;" href="{{ route('demande.index') }}"  >
      
       
       <font size="3.5" color="#D2D2D2"    > <span class="fas fa-list-alt"> </span> <span> Demandes</span></font>

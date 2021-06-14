@@ -44,12 +44,15 @@
 <br>
  
     <br>
+
     <div class="pull-right">
                 <a class="btn btn-success btn-sm"href="{{ url('fournisseur/create',$annonce->id) }}">  Créer votre demande</a>
             </div> 
+           
     <br>
     
-    @foreach ($demandes as $demande)  
+    @foreach ($demandes as $demande) 
+     
     <div class="row justify-content-center">
       
       <div class="col-lg-12 col-md-12">
@@ -62,7 +65,7 @@
                       <h4 style="text-align:center">Votre demande </h4>
                       
                       <br>
-                      <br>
+                 
                  
                      
                                
@@ -90,7 +93,7 @@
 
    
       <br> 
-      <br> 
+     
      
 
 
@@ -108,7 +111,7 @@
 
                    
 
-<br>
+
 
                
        </div>
@@ -128,7 +131,71 @@
   @endforeach
 
 
-
+  @forelse ($AccepterRefusers as $AccepterRefuser) 
+     
+     <div class="row justify-content-center">
+       
+       <div class="col-lg-12 col-md-12">
+           <div class="blog_post blog_style1 box_shadow1">
+               
+               <div class="blog_content bg-white">
+                   <div class="blog_text"  >
+                
+                       <br>
+                       <h4 style="text-align:center">Réponse sur votre demande </h4>
+                       
+                      
+                      
+ 
+    
+ 
+    
+        <div class=" col-sm-12 col-md-12"   >
+         <strong> {{ $AccepterRefuser->message}} </strong> 
+            
+        
+        </div>
+ <br>
+        
+        
+      
+ 
+    
+ 
+ 
+        <div class=" col-sm-12 col-md-8 text-center" style=" margin-left:70px;">
+    
+      
+    
+    
+ 
+        <a class="btn btn-info btn-sm " href="{{  url('/boit_chat') }}">Discuter</a>
+ 
+        @empty
+         <p> aaa</p>
+ 
+        <br> 
+ 
+                    
+ 
+ <br>
+ 
+                
+        </div>
+   
+       
+      
+ 
+ 
+                   </div>
+                   
+               </div>
+               
+           </div>
+       </div>
+     
+   </div>
+   @endforelse
 
 
 

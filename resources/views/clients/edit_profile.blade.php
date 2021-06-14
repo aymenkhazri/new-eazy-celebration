@@ -7,16 +7,15 @@
 <br>
 <br><br>
 <br>
-<br>
-<br>
-<br>
+
+
 
 <div class="container" >
     <div align="center">
      <font    color="#bf4040" > <h1> Modifier votre Profile  </h1> </font>
      <br>
-     <div style=" margin-left:1200px;" >
-            <a data-toggle="modal" class="btn btn-primary" data-target="#profil">Profile</a>
+     <div style=" margin-left:950px;" >
+            <button data-toggle="modal" class="btn btn-sm btn-primary" data-target="#profil">Profile</button>
            
         </div>
    </div>
@@ -27,7 +26,9 @@
    <table  >
   
     <tr>
-      <td >
+      <td  >
+      <div class="card" style="  border-radius: 20px;width: 105%;">    
+      <div class="card-body">
       <font size="5" color="#4d1919">Mettre à jour l'image de profil </font>
       <br>
       <br>
@@ -40,10 +41,10 @@
       
       <div class="row"  >
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-12 ">
 
 
-    <img src="{{asset('images')}}/{{  Auth::user()->avatar }}" style="width:170px; height:170px;  border-radius:50%; "> 
+    <img src="{{asset('images')}}/{{  Auth::user()->avatar }}"   style="width:170px; height:170px; margin-left:70px;  border-radius:40%; "> 
     <br>
     <form enctype="multipart/form-data" action="{{  url('/user/edit_profile') }}" method="POST">
     <br>
@@ -53,25 +54,34 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                 <br>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                 <button type="submit" class="btn btn-primary">Modifier</button>
+                <br>
+                <br>
+                <br>
+                <br>
+         
+         
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 " style=" margin-left:80px;">
+                 <button type="submit" class="btn btn-sm btn-primary">Modifier</button>
            
     </div>
     </form>
 
    
-</div>
+ </div>
 
 
+ </div>
+ </div>
  </div>
       
       </td>
       <td >
         
         
-<div class="row"  style=" margin-left:400px;"  >
+<div   style=" margin-left:200px;width: 70%;"  >
 
-<div class="card">       
+<div class="card" style="  border-radius: 20px;">       
 
 <div class="card-body">
 
@@ -80,20 +90,27 @@
        
  <table >
 
- <font size="5" color="#4d1919">Mettre à jour l'image de profil </font>
+ <font size="5" color="#4d1919"> Mettre à jour les information personal </font>
+ <br>
+ <br>
  @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
    
-    <br>
-@if(session('error'))
-<div class="alert alert-danger" role="alert">
-{{session('error')}}
-</div>
+
+	@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>avertissement!</strong> Veuillez vérifier votre code d'entrée<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
- <br>
+
 
   <tr>
     <td >
@@ -182,12 +199,13 @@
             </td>
             </tr>
             <br>
-   
+
       <tr>  
       <td colspan="2">
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
-                <button type="Reset" class="btn btn-danger">Annuler</button>
+            <br>
+            <button type="submit" class="btn btn-sm btn-primary">Enregistrer</button>
+                <button type="Reset" class="btn btn-sm btn-danger">Annuler</button>
             </div>
         </div>
         </td>
@@ -218,9 +236,23 @@
 <br>
 
 
+<style>
+.form-control {
+    color: #000;
+    box-shadow: none;
+    height: 42px;
+    padding: 8px 15px;
+}
+.card-body {
+  
+ 
+ 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
 
-
-
+ 
+ 
+}
+</style>
 
 
 

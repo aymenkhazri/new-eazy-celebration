@@ -7,6 +7,7 @@ use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Categorie_service;
+use App\Models\AccepterRefuser;
 class DemandeController extends Controller
 {
     /**
@@ -109,11 +110,14 @@ class DemandeController extends Controller
         $demandes = Demande::where('annonce_id',$annonce->id)
              ->where('user_id',Auth::user()->id)
              ->paginate(1);
-            
+
+             $AccepterRefusers = AccepterRefuser::where('fournisseur_id',Auth::user()->id)
+             ->paginate(1);
+          
             
           
              
-        return view('fournisseurs.demandes.index',compact('demandes','annonce'));
+        return view('fournisseurs.demandes.index',compact('demandes','annonce','AccepterRefusers'));
     }
 
     /**

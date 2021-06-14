@@ -13,7 +13,7 @@
                             <div class="col-lg-7 col-md-10">
                                 <div class="banner_content text_white text-center">
 
-                                <a href="{{ url('/annonces') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
+                                <a href="{{ route('annoncess.index') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
                                
                                <br>
                                <br>
@@ -38,7 +38,7 @@
                             <div class="col-lg-7 col-md-10">
                                 <div class="banner_content text_white text-center">
                                
-                                <a href="{{ url('/annonces') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
+                                <a href="{{ route('annoncess.index') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
                                
                                <br>
                                <br>
@@ -57,7 +57,7 @@
                     	<div class="row justify-content-center">
                             <div class="col-lg-7 col-md-10">
                                 <div class="banner_content text_white text-center">
-                                <a href="{{ url('/annonces') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
+                                <a href="{{ route('annoncess.index') }}"> <h3 class="btn btn-fill-out   staggered-animation "  style="  font-size:14px;" data-animation="fadeInDown" data-animation-delay="0.2s">Ajouter une annonce</h3></a>
                                
                                <br>
                                <br>>
