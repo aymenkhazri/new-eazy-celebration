@@ -1,7 +1,7 @@
 @extends('superviseur.index')
  
 @section('content')
-
+<br>
 <div class="container-fluid">
 
 <div align="center">
@@ -27,14 +27,14 @@
             <th style="text-align:center"> Nom</th>
             <th style="text-align:center"> Prenom</th>
             <th style="text-align:center"> Email</th>
-            <th style="text-align:center">Date de naissance</th>
+            <th style="text-align:center">Date naissance</th>
             <th style="text-align:center">Genre</th>
             <th style="text-align:center">Adresse</th>
             <th style="text-align:center">Telephone</th>
-            <th style="text-align:center">Type de service</th>
-
+            <th style="text-align:center"> Service</th>
+            <th style="text-align:center">Etat statut</th>
           
-            <th width="170px" style="text-align:center">Action</th>
+            <th width="105px" style="text-align:center">Action</th>
         </tr>
         @foreach ($users as $user)
         <tr>
@@ -48,18 +48,24 @@
             <td style="text-align:center">{{ $user->adresse}}</td>
             <td style="text-align:center">{{ $user->telephone}}</td>
             <td style="text-align:center">{{ $user->type_service_id}}</td>
-            
+            <td style="text-align:center">
+            @if( $user->isban=='0')
+           <label style=" border-radius:30%" class="btn py-1 btn-primary">Pas banni</label>
+            @elseif($user->isban=='1')
+            <label style=" border-radius:30%" class="btn py-1 btn-danger"> Banni</label>
+            @endif
+            </td>
            
             <td>
                 <form action="{{ route('fournisseurs.destroy',$user->id) }}" method="POST">
    
-                <a class="btn btn-primary" href="{{ url('/user/fournisseurs/show',$user->id) }}">Voir</a>
-                    
+                <a class="btn btn-primary" href="{{ url('/user/fournisseurs/show',$user->id) }}">      <i class="far fa-eye"></i>  </a>
+     
    
                     @csrf
                     @method('DELETE')
       
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                    <button type="submit" class="btn btn-danger">     <i class="far fa-trash-alt"></i></button>
                 </form>
                
             </td>

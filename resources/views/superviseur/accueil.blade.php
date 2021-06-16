@@ -9,11 +9,11 @@
             <div class="row mt">
               <!-- SERVER STATUS PANELS -->
               <div class="col-md-6 col-sm-4 mb">
-               <a  href="{{route('clients.index')}}" >
-                <div class="darkblue-panel pn">
+               <a  href="{{url('/user/clients')}}" >
+                <div class="darkblue-panel pn" style="  border-radius: 50px;">
                      <br>
 
-                <font size="5" color="#D2D2D2" ><span class="fas fa-users"> </span>    <span> Les  Clients </span></font> 
+                <font size="5" color="#343a40" ><span class="fas fa-users"> </span>    <span> Les  Clients </span></font> 
                 <br>
                 
               
@@ -47,11 +47,11 @@
               </div>
               <!-- /col-md-4-->
               <div class="col-md-6 col-sm-4 mb">
-                <a  href="{{route('fournisseurs.index')}}">
-                <div class="darkblue-panel pn">
+                <a  href="{{url('/user/fournisseurs')}}">
+                <div class="darkblue-panel pn" style="  border-radius: 50px;">
                      <br>
 
-                <font size="5" color="#D2D2D2" ><span class="fas fa-users"> </span>    <span> Les  Fournisseurs </span></font> 
+                <font size="5" color="#343a40" ><span class="fas fa-users"> </span>    <span> Les  Fournisseurs </span></font> 
                 <br>
                 
               
@@ -89,23 +89,25 @@
             </div>
          
 <br>
-
-            <div class="row justify-content-center">
+<br>
+<br>
+            <div class="row justify-content-center" >
         @foreach ($annonces as $annonce)
+       
         	<div class="col-lg-4 col-md-6">
+          <a href="{{ route('annonces.index')}}">
             	<div class="blog_post blog_style1 box_shadow1">
                 	<div class="blog_img">
-                        <a href="blog-single.html">
+                       
                         <img src="{{asset('images')}}/{{ $annonce->categorie_service->image}}"  height="180px;" alt="product_img1">
-                        </a>
+                      
                     </div>
                     <div class="blog_content bg-white">
                     	<div class="blog_text"  >
-                        <h6 class=" text-center" ><img src="{{asset('images')}}/{{ $annonce->user->avatar}}" width="40px;" height="40px;"  style="border-radius:50%;"   />  <strong  style=" margin-left:10px;">{{$annonce->user->name}}</strong>  <strong >{{$annonce->user->prenom	}} </strong> </h6> 
-                            <br>
+                       
                             <p> <strong>Evenement : </strong> {{ $annonce->categorie_evenement->type_evenement}}</p>
 								<p> <strong>Service : </strong> {{ $annonce->categorie_service->type_service}}</p>
-								<p> <strong>Description : </strong> {{ $annonce->description}}</p>
+					
 								<p> <strong>Date d'evenement : </strong> {{ $annonce->date_event}}</p>
 								<p> <strong>Adresse de evenement : </strong> {{ $annonce->adresse_event}}</p>
                         </div>
@@ -113,11 +115,18 @@
                     </div>
                     
                 </div>
+                </a>
             </div>
+       
             @endforeach
         </div>
+<br>
+<br>
+<br>
+
 
           </div>
+     
 
 
           
@@ -189,7 +198,29 @@
 
 
 
+<style>
+.darkblue-panel {
+    text-align: center;
+    background: #576475b8;
+}
 
+.header, .footer {
+    min-height: 70px;
+    padding: 0 15px;
+}
+
+ul.top-menu > li > .logout {
+    color: #f2f2f2;
+    font-size: 13px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border: 1px solid #64c3c2 !important;
+    padding: 5px 15px;
+    margin-right: 15px;
+    background: #4ECDC4;
+    margin-top: 15px;
+}
+</style>
 
 
 

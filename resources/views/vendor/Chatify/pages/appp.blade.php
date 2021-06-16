@@ -1,20 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<!-- Meta -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Anil z" name="author">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
-<meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
-
-<!-- SITE TITLE -->
-<title>Eazy-Celebration </title>
-
-
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -113,8 +97,8 @@
                 <ul class="navbar-nav attr-nav align-items-center">
                     
                 <li class="dropdown " style=" margin-right:60px;" >
-                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" style=" border-radius:40%; " height="40px;" width="40px;"></a></span> 
-                <a>  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
+                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" style=" border-radius:50%; " height="50px;" width="50px;"></span> 
+                  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
               
                         <div class="dropdown-menu rounded" >
                             <ul> 
@@ -335,33 +319,144 @@
 </div>
 
 
+<br>
+<br>
+<br>
+
+@include('Chatify::layouts.headLinks')
+<div class="messenger">
+    {{-- ----------------------Users/Groups lists side---------------------- --}}
+    <div class="messenger-listView">
+        {{-- Header and search bar --}}
+        <div class="m-header">
+            <nav>
+                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">  Votre Chat Messenger</span> </a>
+                {{-- header buttons --}}
+                <nav class="m-header-right">
+                    <a href="#"><i class="fas fa-cog settings-btn"></i></a>
+                    <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
+                </nav>
+            </nav>
+            {{-- Search input --}}
+            <input type="text" class="messenger-search" placeholder="Search" />
+            {{-- Tabs --}}
+            <div class="messenger-listView-tabs">
+                <a href="#" @if($route == 'user') class="active-tab" @endif data-view="users">
+                    <span class="far fa-user"></span> Contact</a>
+                <a href="#" @if($route == 'group') class="active-tab" @endif data-view="groups">
+                    <span class="fas fa-users"></span> Groupes</a>
+            </div>
+        </div>
+        {{-- tabs and lists --}}
+        <div class="m-body">
+           {{-- Lists [Users/Group] --}}
+           {{-- ---------------- [ User Tab ] ---------------- --}}
+           <div class="@if($route == 'user') show @endif messenger-tab app-scroll" data-view="users">
+
+               {{-- Favorites --}}
+               <p class="messenger-title">Favoris</p>
+                <div class="messenger-favorites app-scroll-thin"></div>
+
+               {{-- Saved Messages --}}
+               {!! view('Chatify::layouts.listItem', ['get' => 'saved','id' => $id])->render() !!}
+
+               {{-- Contact --}}
+               <div class="listOfContacts" style="width: 100%;height: calc(100% - 200px);"></div>
+
+           </div>
+
+           {{-- ---------------- [ Group Tab ] ---------------- --}}
+           <div class="@if($route == 'group') show @endif messenger-tab app-scroll" data-view="groups">
+                {{-- items --}}
+                <p style="text-align: center;color:grey;">Bientôt disponible</p>
+             </div>
+
+             {{-- ---------------- [ Search Tab ] ---------------- --}}
+           <div class="messenger-tab app-scroll" data-view="search">
+                {{-- items --}}
+                <p class="messenger-title">Rechercher</p>
+                <div class="search-records">
+                    <p class="message-hint"><span>Tapez pour rechercher..</span></p>
+                </div>
+             </div>
+        </div>
+    </div>
+
+    {{-- ----------------------Messaging side---------------------- --}}
+    <div class="messenger-messagingView">
+        {{-- header title [conversation name] amd buttons --}}
+        <div class="m-header m-header-messaging">
+            <nav>
+                {{-- header back button, avatar and user name  --}}
+                <div style="display: inline-flex;">
+                    <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
+                    <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
+                    </div>
+                    <a href="#" class="user-name"> {{ config('chatify.name') }}  </a>_
+                    <a href="#" class="user-prenom"> </a>
+                </div>
+               
+                {{-- header buttons --}}
+                <nav class="m-header-right">
+                    <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                    <a href="/dashboard"><i class="fas fa-home"></i></a>
+                    <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
+                </nav>
+            </nav>
+        </div>
+        <br>
+              
+               
+        {{-- Internet connection --}}
+        <div class="internet-connection">
+            <span class="ic-connected">Connected</span>
+            <span class="ic-connecting">Connecting...</span>
+            <span class="ic-noInternet">Pas d'accès Internet</span>
+        </div>
+        {{-- Messaging area --}}
+        <div class="m-body app-scroll">
+            <div class="messages">
+                <p class="message-hint" style="margin-top: calc(30% - 126.2px);"><span>Veuillez sélectionner un chat pour commencer la messagerie</span></p>
+            </div>
+            {{-- Typing indicator --}}
+            <div class="typing-indicator">
+                <div class="message-card typing">
+                    <p>
+                        <span class="typing-dots">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            {{-- Send Message Form --}}
+          
 
 
+            @include('Chatify::layouts.sendForm')
+           
+        </div>
+    </div>
+    {{-- ---------------------- Info side ---------------------- --}}
+    <div class="messenger-infoView app-scroll">
+        {{-- nav actions --}}
+        <nav>
+            <a href="#"><i class="fas fa-times"></i></a>
+        </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- END MAIN CONTENT -->
-
-    
-
-
-
-<div class="main_content">
-
-<div id="page-content" class="index-page">
-		
-		@yield('content')
-   
+        {!! view('Chatify::layouts.info')->render() !!}
+    </div>
 </div>
+
+@include('Chatify::layouts.modals')
+<br>
+                <br>
+@include('Chatify::layouts.footerLinks')
+
+
+
+
 
 
 
@@ -519,78 +614,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-@if ($message = Session::get('success'))
-    <script >
-       
-            toastr.success( "{{ $message }}");
-        
-        </script>
-    @endif
-    
-
-@if(session('error'))
-<script >
-
-toastr.error("{{session('error')}}") 
-
-</script>
-@endif
-@if (session('succes'))
-    <script >
-       
-            toastr.success("{{ session('succes') }}");
-        
-        </script>
-    @endif
-
-
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<style>
+.messenger {
+    display: inline-flex;
+    width: 100%;
+    height: 90%;
+    font-family: sans-serif;
+}
+img {
+    display: initial;
+    vertical-align: middle;
+}
+</style>

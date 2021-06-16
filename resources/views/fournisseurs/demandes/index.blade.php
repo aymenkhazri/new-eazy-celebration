@@ -130,7 +130,7 @@
   </div>
   @endforeach
 
-
+@if(!empty($AccepterRefusers))
   @forelse ($AccepterRefusers as $AccepterRefuser) 
      
      <div class="row justify-content-center">
@@ -169,10 +169,10 @@
     
     
  
-        <a class="btn btn-info btn-sm " href="{{  url('/boit_chat') }}">Discuter</a>
+        <a class="btn btn-info btn-sm " href="{{  url('/chatify_fournisseur') }}">Discuter</a>
  
         @empty
-         <p> aaa</p>
+         
  
         <br> 
  
@@ -196,6 +196,7 @@
      
    </div>
    @endforelse
+   @endif
 
 
 

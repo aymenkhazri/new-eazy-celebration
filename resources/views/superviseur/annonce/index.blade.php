@@ -406,7 +406,23 @@ modal.find('.modal-body #isban').val(isban);
     min-width: 150px;
     min-height: 34px;
 }
-     </style><
+
+
+#sidebar h5 {
+    color: #f2f2f2;
+    font-weight: 700;
+}
+.centered {
+    text-align: center;
+}
+.h5, h5 {
+    font-size: 15px;
+}
+.h4, .h5, .h6, h4, h5, h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+     </style>
 
            
 @endsection

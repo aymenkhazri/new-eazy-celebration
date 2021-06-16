@@ -111,7 +111,8 @@ class DemandeController extends Controller
              ->where('user_id',Auth::user()->id)
              ->paginate(1);
 
-             $AccepterRefusers = AccepterRefuser::where('fournisseur_id',Auth::user()->id)
+             $AccepterRefusers = AccepterRefuser::where('fournisseur_id',Auth::user()->id)->
+             where('client_id',$annonce->user_id)
              ->paginate(1);
           
             

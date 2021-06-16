@@ -32,7 +32,8 @@ class DashboardController extends Controller
 
             $superviseurs=User::join('role_user','users.id','role_user.user_id')
             ->where('role_id',2)
-            ->get();
+            ->where('id', '!=', Auth::id())
+            ->paginate(5); 
     
             $clients=User::join('role_user','users.id','role_user.user_id')
             ->where('role_id',3)

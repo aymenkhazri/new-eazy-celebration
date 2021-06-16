@@ -1,7 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 <!-- Meta -->
 <meta charset="utf-8">
@@ -17,6 +14,13 @@
 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 
@@ -75,7 +79,7 @@
                 <a class="navbar-brand"  style=" margin-left:200px;"  >
                    
 				
-				<font  color="#4ECDC4" > <strong>Eazy-Celebration  client <i class="fas fa-glass-cheers"></i></strong></font>
+				<font  color="#4ECDC4" > <strong>Eazy-Celebration  Fournisseur<i class="fas fa-glass-cheers"></i></strong></font>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false"> 
                     <span class="ion-android-menu"></span>
@@ -83,27 +87,29 @@
                 <div class="collapse navbar-collapse justify-content-center" >
                     <ul class="navbar-nav">
                         <li>
-                            <a  class="nav-link  " href="{{ url('/accueill') }}">Accueil</a>
+                            <a  class="nav-link  " href="{{ url('/accueilll') }}">Accueil</a>
                           
                         </li>
                         <li >
-                            <a class="  nav-link " href="{{ url('/evenementss') }}" >Evenements</a>
+                            <a class="  nav-link " href="{{ url('/evenement') }}" >Evenements</a>
                            
                         </li>
                         <li >
-                            <a class=" nav-link" href="{{ url('/servicess') }}" >Services</a>
+                            <a class=" nav-link" href="{{ url('/service') }}" >Services</a>
                             
-                            
-                        </li>
-                        <li class="dropdown">
-                            <a class=" nav-link" href="{{ route('annoncess.index') }}" >Annonces</a>
                             
                         </li>
                         <li >
-                            <a class=" nav-link" href="{{ url('/chatify_client') }}" >Boit chat</a>
+                            <a class=" nav-link" href="{{ url('/demandes') }}">Annonces</a>
+                            
+                        </li>
+                        <li >
+                            <a class=" nav-link" href="{{ url('/chatify_fournisseur') }}" >Boit chat</a>
                             
                         </li>
                     
+
+                     
                         
                         </div>
    
@@ -112,11 +118,11 @@
                
                 <ul class="navbar-nav attr-nav align-items-center">
                     
-                <li class="dropdown " style=" margin-right:60px;" >
-                <span ><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" style=" border-radius:40%; " height="40px;" width="40px;"></a></span> 
+                <li class="dropdown" style=" margin-right:5px;">
+                <span class="centered"><a data-toggle="modal" data-target="#profil"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="rounded-circle" height="45px;" width="45px;"></a></span> 
                 <a>  <font size="4" color="#ffffff">  <span >{{ Auth::user()->name }} </span> <span >{{ Auth::user()->prenom }}</span></font></a>
               
-                        <div class="dropdown-menu rounded" >
+                        <div class="dropdown-menu rounded">
                             <ul> 
                                 <li><a class="dropdown-item nav-link nav_item" data-toggle="modal" data-target="#profil" href="index.html">Profile</a></li>
                                 <li><a class="dropdown-item nav-link nav_item" data-toggle="modal" data-target="#myModal" href="index-2.html">Sécurité</a></li>
@@ -158,39 +164,44 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-      <div class="modal-header"  style="background-color:#4ECDC4;">
-      <h4 class="modal-title text-center" id="myModalLabel"style="color:#ffff;" >Profil</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      
-      </div>
-        <div class="modal-body" style="text-align:center"  >
+        <div class="modal-header" style="background-color:#4ECDC4;">
+          <button type="button" class="close"  data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"  align="center">Profil</h4>
+        </div>
+        <div class="modal-body"  >
 
 
         <div class="row" >
    <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group"  align="center">
                    
-                <img src="{{asset('images')}}/{{ Auth::user()->avatar}}"  height="150px;" width="150px;" style=" border-radius:40%; ">
+                <img src="{{asset('images')}}/{{ Auth::user()->avatar}}" style=" border-radius:50%; ">
                 </div>
             </div>    
         </div>
-        <br>
         <br>
         <div class="row" >
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <span > <h5> <strong >Nom : </strong> {{ Auth::user()->name }}   <strong style=" margin-left:20px;">Prenom : </strong> {{Auth::user()->prenom }} </h5></span >
+				 <h3>Nom : {{ Auth::user()->name }}</h3>
 				 </div>
 			 </div>    
 		 </div>
-	
+		 <div class="row" >
+	<div class="col-xs-12 col-sm-12 col-md-12">
+				 <div class="form-group">
+					
+				 <h3>Prenom : {{Auth::user()->prenom }}</h3>
+				 </div>
+			 </div>    
+		 </div>
  
 		 <div class="row" >
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h5> <strong> Email : </strong> {{ Auth::user()->email }}</h5>
+				 <h3>Email : {{ Auth::user()->email }}</h3>
 				 </div>
 			 </div>    
 		 </div>
@@ -199,7 +210,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h5> <strong>Date de naissance: </strong>  {{ Auth::user()->date_naissance }}</h5>
+				 <h3>Date de naissance:  {{ Auth::user()->date_naissance }}</h3>
 				 </div>
 			 </div>    
 		 </div>
@@ -207,7 +218,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h5> <strong>Adresse : </strong> {{ Auth::user()->adresse }}</h5>
+				 <h3>Adresse : {{ Auth::user()->adresse }}</h3>
 				 </div>
 			 </div>    
 		 </div>
@@ -215,7 +226,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h5> <strong>Telephone : </strong> {{Auth::user()->telephone }}</h5>
+				 <h3>Telephone : {{Auth::user()->telephone }}</h3>
 				 </div>
 			 </div>    
 		 </div>
@@ -224,7 +235,7 @@
 	<div class="col-xs-12 col-sm-12 col-md-12">
 				 <div class="form-group">
 					
-				 <h5> <strong>Genre : </strong> {{ Auth::user()->genre }}</h5>
+				 <h3>Genre : {{ Auth::user()->genre }}</h3>
 				 </div>
 			 </div>    
 		 </div>
@@ -233,9 +244,9 @@
 
 <div class="modal-footer" >
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <button  type="button"  data-dismiss="modal" class="btn btn-sm btn-danger">Annuler</button>
+
     <a  href="{{  url('/client/edit_profile') }}" > <button type="submit" class=" btn btn-sm btn-primary" > Modifier</button></a>
-    
+    <button  type="button"  data-dismiss="modal" class="btn btn-danger">Annuler</button>
     </div>
        
        </div>
@@ -349,29 +360,143 @@
 
 
 
-<!-- END MAIN CONTENT -->
+<br>
+<br>
+<br>
 
-    
+
+@include('Chatify::layouts.headLinks')
+<div class="messenger">
+    {{-- ----------------------Users/Groups lists side---------------------- --}}
+    <div class="messenger-listView">
+        {{-- Header and search bar --}}
+        <div class="m-header">
+            <nav>
+                <a href="#"><i class="fas fa-inbox"></i> <span class="messenger-headTitle">MESSAGES</span> </a>
+                {{-- header buttons --}}
+                <nav class="m-header-right">
+                    <a href="#"><i class="fas fa-cog settings-btn"></i></a>
+                    <a href="#" class="listView-x"><i class="fas fa-times"></i></a>
+                </nav>
+            </nav>
+            {{-- Search input --}}
+            <input type="text" class="messenger-search" placeholder="Search" />
+            {{-- Tabs --}}
+            <div class="messenger-listView-tabs">
+                <a href="#" @if($route == 'user') class="active-tab" @endif data-view="users">
+                    <span class="far fa-user"></span> People</a>
+                <a href="#" @if($route == 'group') class="active-tab" @endif data-view="groups">
+                    <span class="fas fa-users"></span> Groups</a>
+            </div>
+        </div>
+        {{-- tabs and lists --}}
+        <div class="m-body">
+           {{-- Lists [Users/Group] --}}
+           {{-- ---------------- [ User Tab ] ---------------- --}}
+           <div class="@if($route == 'user') show @endif messenger-tab app-scroll" data-view="users">
+
+               {{-- Favorites --}}
+               <p class="messenger-title">Favorites</p>
+                <div class="messenger-favorites app-scroll-thin"></div>
+
+               {{-- Saved Messages --}}
+               {!! view('Chatify::layouts.listItem', ['get' => 'saved','id' => $id])->render() !!}
+
+               {{-- Contact --}}
+               <div class="listOfContacts" style="width: 100%;height: calc(100% - 200px);"></div>
+
+           </div>
+
+           {{-- ---------------- [ Group Tab ] ---------------- --}}
+           <div class="@if($route == 'group') show @endif messenger-tab app-scroll" data-view="groups">
+                {{-- items --}}
+                <p style="text-align: center;color:grey;">Soon will be available</p>
+             </div>
+
+             {{-- ---------------- [ Search Tab ] ---------------- --}}
+           <div class="messenger-tab app-scroll" data-view="search">
+                {{-- items --}}
+                <p class="messenger-title">Search</p>
+                <div class="search-records">
+                    <p class="message-hint"><span>Type to search..</span></p>
+                </div>
+             </div>
+        </div>
+    </div>
+
+    {{-- ----------------------Messaging side---------------------- --}}
+    <div class="messenger-messagingView">
+        {{-- header title [conversation name] amd buttons --}}
+        <div class="m-header m-header-messaging">
+            <nav>
+                {{-- header back button, avatar and user name  --}}
+                <div style="display: inline-flex;">
+                    <a href="#" class="show-listView"><i class="fas fa-arrow-left"></i></a>
+                    <div class="avatar av-s header-avatar" style="margin: 0px 10px; margin-top: -5px; margin-bottom: -5px;">
+                    </div>
+                    <a href="#" class="user-name">{{ config('chatify.name') }}  </a>
+                </div>
+              
+                {{-- header buttons --}}
+                <nav class="m-header-right">
+                    <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
+                    <a href="/dashboard"><i class="fas fa-home"></i></a>
+                    <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
+                </nav>
+            </nav>
+        </div>
+        <br>
+              
+               
+        {{-- Internet connection --}}
+        <div class="internet-connection">
+            <span class="ic-connected">Connected</span>
+            <span class="ic-connecting">Connecting...</span>
+            <span class="ic-noInternet">No internet access</span>
+        </div>
+        {{-- Messaging area --}}
+        <div class="m-body app-scroll">
+            <div class="messages">
+                <p class="message-hint" style="margin-top: calc(30% - 126.2px);"><span>Please select a chat to start messaging</span></p>
+            </div>
+            {{-- Typing indicator --}}
+            <div class="typing-indicator">
+                <div class="message-card typing">
+                    <p>
+                        <span class="typing-dots">
+                            <span class="dot dot-1"></span>
+                            <span class="dot dot-2"></span>
+                            <span class="dot dot-3"></span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            {{-- Send Message Form --}}
+          
 
 
+            @include('Chatify::layouts.sendForm')
+           
+        </div>
+    </div>
+    {{-- ---------------------- Info side ---------------------- --}}
+    <div class="messenger-infoView app-scroll">
+        {{-- nav actions --}}
+        <nav>
+            <a href="#"><i class="fas fa-times"></i></a>
+        </nav>
 
-<div class="main_content">
-
-<div id="page-content" class="index-page">
-		
-		@yield('content')
-   
+        {!! view('Chatify::layouts.info')->render() !!}
+    </div>
 </div>
 
+@include('Chatify::layouts.modals')
+<br>
+                <br>
+@include('Chatify::layouts.footerLinks')
 
 
 
-
-
-
-
-
-<!-- END MAIN CONTENT -->
 
 <!-- START FOOTER -->
 <footer class="footer_dark">
@@ -438,7 +563,7 @@
                 	<div class="widget">
                         <h6 class="widget_title">Instagram</h6>
                         <ul class="widget_instafeed instafeed_col4">
-                        <li><a href="{{ url('https://www.instagram.com/') }}"><img src="{{ asset('assets/images/service.jpg') }}" alt="insta_img" height="84px;"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
+                            <li><a href="{{ url('https://www.instagram.com/') }}"><img src="{{ asset('assets/images/service.jpg') }}" alt="insta_img" height="84px;"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                             <li><a href="{{ url('https://www.instagram.com/') }}"><img src="{{ asset('assets/images/mariage.jpg') }}" alt="insta_img" height="84px;" ><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                             <li><a href="{{ url('https://www.instagram.com/') }}"><img src="{{ asset('assets/images/anniversaire.jpg') }}"  height="84px;"alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
                             <li><a href="{{ url('https://www.instagram.com/') }}"><img src="{{ asset('assets/images/mariage1.jpg') }}"  height="84px;"alt="insta_img"><span class="insta_icon"><i class="ti-instagram"></i></span></a></li>
@@ -460,7 +585,7 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="footer_payment text-center text-md-right">
-                    <li><a href="#"><img src="{{ asset('assets/images/visa.png') }}" alt="visa"></a></li>
+                        <li><a href="#"><img src="{{ asset('assets/images/visa.png') }}" alt="visa"></a></li>
                         <li><a href="#"><img src="{{ asset('assets/images/discover.png') }}" alt="discover"></a></li>
                         <li><a href="#"><img src="{{ asset('assets/images/master_card.png') }}" alt="master_card"></a></li>
                         <li><a href="#"><img src="{{ asset('assets/images/paypal.png') }}" alt="paypal"></a></li>
@@ -514,83 +639,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@if ($message = Session::get('success'))
-    <script >
-       
-            toastr.success( "{{ $message }}");
-        
-        </script>
-    @endif
-    
-
-@if(session('error'))
-<script >
-
-toastr.error("{{session('error')}}") 
-
-</script>
-@endif
-@if (session('succes'))
-    <script >
-       
-            toastr.success("{{ session('succes') }}");
-        
-        </script>
-    @endif
-
-
-
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<style>
+.messenger {
+    display: inline-flex;
+    width: 100%;
+    height: 90%;
+    font-family: sans-serif;
+}
+img {
+    display: initial;
+    vertical-align: middle;
+}
+</style>

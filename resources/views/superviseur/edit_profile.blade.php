@@ -1,22 +1,26 @@
 @extends('superviseur.index')
 
 @section('content')
+
+<div style=" margin-left:100px;"  >
+           <h1 > <a  href="{{  url('/user/profile') }}"> <i class="fas fa-chevron-circle-left"></i> </a></h1> 
+         </div>
 <div class="container" >
     <div align="center">
      <font    color="#bf4040" > <h1> Modifier votre Profile  </h1> </font>
      <br>
-     <div style=" margin-left:1200px;" >
-            <a class="btn btn-info" href="{{  url('/user/profile') }}">Retour</a>
-        </div>
+     <br>
+    
+        
    </div>
    <br>
-   <br>
+ 
    
    
    <table >
   
-    <tr>
-      <td >
+    <tr >
+      <td class="card" style="  border-radius: 20px;height: 500px;width:400px; " align="center">
       <font size="5" color="#4d1919">Mettre à jour l'image de profil </font>
       <br>
       <br>
@@ -37,10 +41,12 @@
     <form enctype="multipart/form-data" action="{{  url('/user/edit_profile') }}" method="POST">
     <br>
     <br>
+    <div style="margin-left:-20px;">
 
                 <input type="file" name="avatar">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+</div>
+                <br>
                 <br>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                  <button type="submit" class="btn btn-primary">Modifier</button>
@@ -55,11 +61,11 @@
  </div>
       
       </td>
-      <td >
+      <td  >
         
         
-<div class="row"  style=" margin-left:400px;"  >
-<font size="5" color="#4d1919">Changer votre mot de passe </font>
+<div class="card"  style="  border-radius: 20px;height: 500px;width:400px;  margin-left:300px;" >
+<font size="5" color="#4d1919"align="center">Changer votre mot de passe </font>
    
 @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -78,7 +84,7 @@
 <form action="{{ route('changepassword') }}" method="POST">
 @csrf
  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
+    <div class="col-xs- col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Actuel mot de passe :</strong>
             <input type="password" name="Ancien" class="form-control" placeholder="Actuel mot de passe">
@@ -109,6 +115,7 @@
 
     <br>
 <br>
+<br>
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
     <button type="submit" class="btn btn-primary">Changer</button>
@@ -135,7 +142,12 @@
 
 
 
+<style>
 
+.card {
+    padding: 20px;
+}
+</style>
 
 
 

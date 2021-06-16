@@ -9,7 +9,7 @@ use App\Models\Categorie_service;
 use App\Models\Annonce;
 use App\Models\Demande;
 use App\Models\AccepterRefuser;
-
+use Illuminate\Support\Facades\Request as FacadesRequest;
 use App\Models\User;
 use Auth;
 use Hash ;
@@ -266,7 +266,20 @@ class ClientsController extends Controller
             'message' => 'Votre offre a été acceptée avec succès de la part de votre client',
          
         ]) ;
-        return view('clients.boit_chat');
+
+        $routeName= FacadesRequest::route()->getName();
+        $route = (in_array($routeName, ['user', config('chatify.routes.prefix')]))
+            ? 'user'
+            : $routeName;
+
+        // prepare id
+        return view('Chatify::pages.appp', [
+            'id' => ($id == null) ? 0 : $route . '_' . $id,
+            'route' => $route,
+            'messengerColor' => Auth::user()->messenger_color,
+            'dark_mode' => Auth::user()->dark_mode < 1 ? 'light' : 'dark',
+        ]);
+       
     }
 
  

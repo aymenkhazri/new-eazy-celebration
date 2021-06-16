@@ -93,12 +93,13 @@
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
+        <br>
         <ul class="sidebar-menu" id="nav-accordion">
         <p class="centered"><a href="{{ url('/user/profile') }}"><img src="{{asset('images')}}/{{ Auth::user()->avatar }}" class="img-circle" height="70px;" width="70px;"></a></p> 
        
-          <h5 class="centered">  {{ Auth::user()->name }}</h5>
+          <h5 class="centered">  {{ Auth::user()->name }} {{ Auth::user()->prenom }}</h5>
 
-         
+        
           <li class="mt">
             <a  class="active" href="{{url('/user/accueil')}}" >
             
@@ -269,7 +270,12 @@
   </script>
 
 
-
+<style>
+#sidebar h5 {
+    color: #f2f2f2;
+   
+}
+</style>
 
 
  

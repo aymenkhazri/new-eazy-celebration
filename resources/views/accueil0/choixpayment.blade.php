@@ -59,7 +59,7 @@
                         <h4 class="product_title"><a href="shop-product-detail.html">{{ $paiement->duree}}</a></h4>
                         <hr>
                         <div class="product_price">
-                        <h5>  <span class="price">$ {{ $paiement->montant}} DT</span></h5>
+                        <h5>  <span class="price">{{ $paiement->montant}} DT</span></h5>
                         <hr>
                         </div>
                         <div class="rating_wrap">

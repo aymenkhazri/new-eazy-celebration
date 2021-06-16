@@ -2,7 +2,7 @@
   
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('assets/css/stylee.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/styleeee.css') }}">
 
 
 <!-- START SECTION BLOG -->

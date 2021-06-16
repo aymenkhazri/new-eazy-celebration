@@ -63,7 +63,7 @@
                 <form action="{{ route('clients.destroy',$user->id) }}" method="POST">
    
                 <a class="btn btn-primary" href="{{ route('clients.show',$user->id) }}"><i class="far fa-eye"></i></a>
-                    
+            
    
                     @csrf
                     @method('DELETE')

@@ -67,8 +67,8 @@ Route::get('filtre_demande/{id}', 'App\Http\controllers\ClientsController@filtre
 Route::get('accepter/{id}', 'App\Http\controllers\ClientsController@accepter');
 Route::get('refuser/{id}', 'App\Http\controllers\ClientsController@refuser');
 
-
-
+Route::get('/chatify_fournisseur', 'Chatify\Http\Controllers\MessagesController@index');
+Route::get('/chatify_client', 'App\Http\controllers\FournisseurMessagesController@index');
 
 Route::get('/fournisseur/profile', 'App\Http\controllers\FournisseursController@profile');
 Route::get('/boit_chat', 'App\Http\controllers\FournisseursController@boit_chat');
